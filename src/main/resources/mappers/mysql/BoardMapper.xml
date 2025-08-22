@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.audigo.audigo_back.mapper.mysql.MyBoardMapper">
+
+    <select id="selectAllBoard" resultType="hashmap">
+        SELECT * 
+          FROM board 
+    </select>
+
+
+    <select id="selectOneBoard" resultType="hashmap">
+        SELECT * 
+          FROM board
+         WHERE b_idx = #{brdNum}
+    </select>
+
+    <!-- 게시판 등록 -->
+    <insert id="insertBoard" parameterType="com.audigo.audigo_back.entity.BoardEntity" useGeneratedKeys="true" keyProperty="bIdx">
+        INSERT INTO board (
+            title,
+            content,
+            write_datetime,
+            writer_email
+        ) VALUES (
+            #{title},
+            #{content},
+            #{writeDatetime},
+            #{writerEmail}
+        )
+    </insert>
+
+</mapper>
