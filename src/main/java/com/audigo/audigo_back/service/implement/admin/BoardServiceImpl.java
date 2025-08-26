@@ -18,10 +18,12 @@ import com.audigo.audigo_back.dto.response.ResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetCommentListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetFavoriteListResponseDto;
+import com.audigo.audigo_back.dto.response.admin.board.GetLatestBoardListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostCommentResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PutFavoriteResponseDto;
 import com.audigo.audigo_back.entity.BoardEntity;
+import com.audigo.audigo_back.entity.BoardListViewEntity;
 import com.audigo.audigo_back.entity.CommentEntity;
 import com.audigo.audigo_back.entity.FavoriteEntity;
 import com.audigo.audigo_back.entity.ImageEntity;
@@ -29,9 +31,9 @@ import com.audigo.audigo_back.mapper.BoardMapper;
 import com.audigo.audigo_back.repository.FavoriteRepository;
 import com.audigo.audigo_back.repository.ImageRepository;
 import com.audigo.audigo_back.repository.admin.AdminRepository;
+import com.audigo.audigo_back.repository.admin.BoardListViewRepository;
 import com.audigo.audigo_back.repository.admin.BoardRepository;
 import com.audigo.audigo_back.repository.admin.CommentRepository;
-import com.audigo.audigo_back.repository.app.UserRepository;
 import com.audigo.audigo_back.repository.resultSet.GetBoardResultSet;
 import com.audigo.audigo_back.repository.resultSet.GetCommentListResultSet;
 import com.audigo.audigo_back.repository.resultSet.GetFavoriteListResultSet;
@@ -51,6 +53,7 @@ public class BoardServiceImpl implements BoardService {
     private final ImageRepository imgRepository;
     private final FavoriteRepository favoriteRepository;
     private final CommentRepository commentRepository;
+    private final BoardListViewRepository boardListViewRepository;
 
     /**
      * 게시글 등록 JPA / VO
@@ -309,6 +312,23 @@ public class BoardServiceImpl implements BoardService {
         //CommonResponseDto<Map<String, Object>> result = CommonResponseDto.success(board);//명시적 지정2
         //return result; //명시적 지정2
         return CommonResponseDto.success(board); //자동으로 타입 추론
+    }
+
+    /**
+     * 최신 게시글 목록 전체 조회 desc
+     */
+    @Override
+    public ResponseEntity<? super GetLatestBoardListResponseDto> getLatestBoardList() {
+        List<BoardListViewEntity> boardListViewEntities = new ArrayList<>(); 
+
+        try {
+            boardListViewEntities = boardListViewRepository.findAllByOrderByCdtDesc();
+                
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+        return GetLatestBoardListResponseDto.success(boardListViewEntities);
     }
 
    

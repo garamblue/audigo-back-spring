@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.audigo.audigo_back.dto.request.admin.auth.AdminSignInRequestDto;
 import com.audigo.audigo_back.dto.request.admin.auth.AdminSignUpRequestDto;
+import com.audigo.audigo_back.dto.response.ResponseDto;
+import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
 import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInResponseDto;
 import com.audigo.audigo_back.dto.response.admin.auth.AdminSignUpResponseDto;
 import com.audigo.audigo_back.entity.AdminEntity;
@@ -86,6 +88,27 @@ public class AdminAuthServiceImpl implements AdminAuthService{
             return AdminSignInResponseDto.databaseError();
         }
         return AdminSignInResponseDto.success(token);
+    }
+
+    /**
+     * 로그인한 admin의 정보를 가져옴
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseEntity<? super AdminSignInInfoResponseDto> getAdminsInfo(String id) {
+        AdminEntity adminEntity = null;
+
+        try {
+            adminEntity = adminRepository.findById(id);
+            if (adminEntity == null)
+                return AdminSignInInfoResponseDto.notExistingAdmin();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+        return AdminSignInInfoResponseDto.success(adminEntity);
     }
     
 }

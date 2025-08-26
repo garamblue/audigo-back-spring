@@ -11,6 +11,7 @@ import com.audigo.audigo_back.dto.response.CommonResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetCommentListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetFavoriteListResponseDto;
+import com.audigo.audigo_back.dto.response.admin.board.GetLatestBoardListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostCommentResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PutFavoriteResponseDto;
@@ -37,6 +38,9 @@ public interface BoardService {
     // 댓글 등록
     ResponseEntity<? super PostCommentResponseDto> postComment(PostCommentRequestDto dto, Integer bIdx,
             String email);
+
+    // 최근 게시물 조회
+    ResponseEntity<? super GetLatestBoardListResponseDto> getLatestBoardList();
 
     // 게시물 조회
     CommonResponseDto<List<Map<String, Object>>> getAllBoard();

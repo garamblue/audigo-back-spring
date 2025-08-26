@@ -7,6 +7,7 @@ import com.audigo.audigo_back.dto.request.admin.board.PostBoardRequestDto;
 import com.audigo.audigo_back.dto.request.admin.board.PostCommentRequestDto;
 import com.audigo.audigo_back.dto.response.CommonResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetBoardResponseDto;
+import com.audigo.audigo_back.dto.response.admin.board.GetLatestBoardListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetCommentListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetFavoriteListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostBoardResponseDto;
@@ -63,6 +64,21 @@ public class BoardController {
     public ResponseEntity<? super GetBoardResponseDto> getBoard(@PathVariable("bIdx") Integer bIdx) {
         ResponseEntity<? super GetBoardResponseDto> response = boardService.getBoard(bIdx);
 
+        return response;
+    }
+
+    /**
+     * 최신 게시물 전체 조회
+     * @return
+     */
+    @Operation(summary = "최신 게시물 조회", description = "최신 게시물 목록 조회.")
+    @ApiResponses({
+        @ApiResponse(responseCode = "SU", description = "조회성공", content = @Content(mediaType = "application/json")),
+        @ApiResponse(responseCode = "DBE", description = "DATABASE_ERROR", content = @Content(mediaType = "application/json"))
+    })
+    @GetMapping("/latest-list")
+    public ResponseEntity<? super GetLatestBoardListResponseDto> getLatestBoardList() {
+        ResponseEntity<? super GetLatestBoardListResponseDto> response = boardService.getLatestBoardList();
         return response;
     }
 

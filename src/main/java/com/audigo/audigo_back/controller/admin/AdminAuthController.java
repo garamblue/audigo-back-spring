@@ -3,15 +3,17 @@ package com.audigo.audigo_back.controller.admin;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.audigo.audigo_back.controller.app.AuthController;
 import com.audigo.audigo_back.dto.request.admin.auth.AdminSignUpRequestDto;
 import com.audigo.audigo_back.dto.request.admin.auth.AdminSignInRequestDto;
 import com.audigo.audigo_back.dto.response.admin.auth.AdminSignUpResponseDto;
+import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
 import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInResponseDto;
 import com.audigo.audigo_back.service.admin.AdminAuthService;
 
@@ -77,11 +79,11 @@ public class AdminAuthController {
     @Operation(summary = "관리자 로그인", description = "Admin 계정 로그인.")
     @ApiResponses({
         @ApiResponse(responseCode = "SU", description = "로그인 성공", content = @Content(mediaType = "application/json")),
-        @ApiResponse(responseCode = "401", description = "SIGN_IN_FAIL"),
+        @ApiResponse(responseCode = "401", description = "SIGN_IN_FAIL", content = @Content(mediaType = "application/json")),
         @ApiResponse(responseCode = "DE", description = "Database Error", content = @Content(mediaType = "application/json"))
     })
     @Parameters({
-        @Parameter(name = "id", description = "AdminSignInRequestDto 참조 3 ~ 50자 이내", required = true, example = "test01"),
+        @Parameter(name = "id", description = "AdminSignInRequestDto 참조 3 ~ 50자 이내", required = true, example = "test1"),
         @Parameter(name = "password", description = "8 ~ 50자 이내", required = true, example = "12345678")
     })
     @PostMapping("/sign-in")
@@ -90,6 +92,29 @@ public class AdminAuthController {
 
         ResponseEntity<? super AdminSignInResponseDto> response = adminAuthService.signIn(requestBody);
 
+        return response;
+    }
+
+    /**
+     * 로그인한 관리자 정보조회
+     * @param id
+     * @return
+     */
+    @Operation(summary = "로그인한 관리자 정보조회", description = "로그인한 Admin 계정 정보조회.")
+    @ApiResponses({
+        @ApiResponse(responseCode = "SU", description = "로그인 성공", content = @Content(mediaType = "application/json")),
+        @ApiResponse(responseCode = "NEA", description = "NOT_EXISTING_ADMIN_USER", content = @Content(mediaType = "application/json")),
+        @ApiResponse(responseCode = "DE", description = "Database Error", content = @Content(mediaType = "application/json"))
+    })
+    @Parameters({
+        @Parameter(name = "id", description = "3 ~ 50자 이내", required = true, example = "test1")
+    })
+    @GetMapping("info")
+    public ResponseEntity<? super AdminSignInInfoResponseDto> getAdminsInfo(@AuthenticationPrincipal String id) {
+        logger.info("=== AuthenticationPrincipal id: " + id);
+
+        ResponseEntity<? super AdminSignInInfoResponseDto> response = adminAuthService.getAdminsInfo(id);
+        
         return response;
     }
 

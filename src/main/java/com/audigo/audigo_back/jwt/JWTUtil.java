@@ -60,10 +60,6 @@ public class JWTUtil {
     }
 
     public String createJwt(String username, String role, Long expiredMs) {
-        /*
-         * .claim("username", username)
-         * 
-         */
         return Jwts.builder()
                 .claim("username", username)
                 .claim("role", role)
@@ -119,6 +115,7 @@ public class JWTUtil {
 
         String token = Jwts.builder()
                 .claim("id", id)
+                //.claim("role", role) //admin 권한세팅한 토큰 발행 시 String role 파라미터 추가하기
                 .issuedAt(date)
                 .expiration(new Date(System.currentTimeMillis() + expiredMs))
                 .signWith(secretKey)
