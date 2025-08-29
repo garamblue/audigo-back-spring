@@ -1,9 +1,8 @@
 package com.audigo.audigo_back.jwt;
 
 import io.jsonwebtoken.Jwts;
+import lombok.extern.slf4j.Slf4j;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -17,9 +16,9 @@ import java.util.Date;
 /**
  * 리액트 강의 8강 JwtProvider 를 대체
  */
+@Slf4j
 @Component
 public class JWTUtil {
-    private static final Log logger = LogFactory.getLog(JWTUtil.class);
 
     private SecretKey secretKey;
 
@@ -82,8 +81,8 @@ public class JWTUtil {
         // 2. Date -> LocalDateTime
         LocalDateTime localDateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
         // 3. LocalDateTime 출력
-        logger.info("create JWT WithEmail: =============== start");
-        logger.info("=== localDateTime: " + localDateTime);
+        log.info("create JWT WithEmail: =============== start");
+        log.info("=== localDateTime: " + localDateTime);
 
         String token = Jwts.builder()
                 .claim("email", email)
@@ -92,8 +91,8 @@ public class JWTUtil {
                 .signWith(secretKey)
                 .compact();
 
-        logger.info("=== created token: " + token);
-        logger.info("create JWT WithEmail: =============== end");
+        log.info("=== created token: " + token);
+        log.info("create JWT WithEmail: =============== end");
 
         return token;
     }
@@ -110,8 +109,8 @@ public class JWTUtil {
         // 2. Date -> LocalDateTime
         LocalDateTime localDateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
         // 3. LocalDateTime 출력
-        logger.info("create JWT With Id: =============== start");
-        logger.info("=== localDateTime: " + localDateTime);
+        log.info("create JWT With Id: =============== start");
+        log.info("=== localDateTime: " + localDateTime);
 
         String token = Jwts.builder()
                 .claim("id", id)
@@ -121,8 +120,8 @@ public class JWTUtil {
                 .signWith(secretKey)
                 .compact();
 
-        logger.info("=== created token: " + token);
-        logger.info("create JWT With Id: =============== end");
+        log.info("=== created token: " + token);
+        log.info("create JWT With Id: =============== end");
 
         return token;
     }

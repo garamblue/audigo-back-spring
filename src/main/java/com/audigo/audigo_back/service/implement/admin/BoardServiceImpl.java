@@ -5,8 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +18,7 @@ import com.audigo.audigo_back.dto.response.admin.board.GetBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetCommentListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetFavoriteListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetLatestBoardListResponseDto;
+import com.audigo.audigo_back.dto.response.admin.board.GetPaginationResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostCommentResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PutFavoriteResponseDto;
@@ -39,13 +39,18 @@ import com.audigo.audigo_back.repository.resultSet.GetCommentListResultSet;
 import com.audigo.audigo_back.repository.resultSet.GetFavoriteListResultSet;
 import com.audigo.audigo_back.service.admin.BoardService;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
-
-    private static final Log logger = LogFactory.getLog(BoardServiceImpl.class);
 
     private final BoardRepository boardRepository; //jpa case
     private final BoardMapper boardMapper;         //mybatis case
@@ -95,7 +100,7 @@ public class BoardServiceImpl implements BoardService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public ResponseEntity<? super PostBoardResponseDto> postBoardAdmin_my(PostBoardRequestDto dto, String id) {
-        logger.info("===== Admin id: " + id);
+        log.info("===== Admin id: " + id);
         boolean existedId = adminRepository.existsById(id);
         if (!existedId)
             return PostBoardResponseDto.notExistedAdmin();
@@ -106,8 +111,8 @@ public class BoardServiceImpl implements BoardService {
         int resultRow = boardMapper.insertBoardAdmin(boardEntity);
         int genPK = boardEntity.getBIdx();
 
-        logger.info("===== postBoardAdmin resultRow: " + resultRow);
-        logger.info("===== postBoardAdmin genPK : " + genPK);
+        log.info("===== postBoardAdmin resultRow: " + resultRow);
+        log.info("===== postBoardAdmin genPK : " + genPK);
 
         if (resultRow < 1 )
             throw new RuntimeException("===== transaction 처리 중 예외 발생 : insertBoard =====");
@@ -133,14 +138,14 @@ public class BoardServiceImpl implements BoardService {
      */
     @Override
     public ResponseEntity<? super GetBoardResponseDto> getBoard(Integer bIdx) {
-        logger.info("===== getBoard called with bIdx: " + bIdx);
+        log.info("===== getBoard called with bIdx: " + bIdx);
         GetBoardResultSet resultSet = null;
         List<ImageEntity> imageEntities = new ArrayList<>();
 
         try {
             resultSet = boardRepository.getBoard(bIdx);
             if (resultSet == null) {
-                logger.warn("===== getBoard resultSet is null for bIdx: " + bIdx);
+                log.warn("===== getBoard resultSet is null for bIdx: " + bIdx);
                 return GetBoardResponseDto.notExistingContents();
             }
 
@@ -331,6 +336,25 @@ public class BoardServiceImpl implements BoardService {
         return GetLatestBoardListResponseDto.success(boardListViewEntities);
     }
 
-   
+    /**
+     * 페이징 처리한 게시글 목록 조회
+     */
+    @Override
+    public ResponseEntity<? super GetPaginationResponseDto> getPagedList(int page, int countPerPage, boolean isPaged) {
+        try {
+            Page<BoardListViewEntity> boardList;
+            if (isPaged) {
+                Pageable pageable = PageRequest.of(page - 1, countPerPage);
+                boardList = boardListViewRepository.findAllByOrderByCdtDesc(pageable);
+            } else {
+                List<BoardListViewEntity> boardListViewEntities = boardListViewRepository.findAllByOrderByCdtDesc();
+                boardList = new PageImpl<>(boardListViewEntities);// 전체 데이터를 Page 객체로 변환
+            }
+            return GetPaginationResponseDto.success(boardList);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+    }
 
 }

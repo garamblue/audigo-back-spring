@@ -36,6 +36,7 @@ public class SignUpRequestDto {
     //@Size(min = 8, max = 100)
     //private String password;
 
+    private String snsId;
     private String gender;
     private String invitationCd;
     private String inviterCd;

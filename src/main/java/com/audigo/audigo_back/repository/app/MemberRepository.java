@@ -21,6 +21,7 @@ public interface MemberRepository extends JpaRepository<MemberEntity, BigInteger
     /**
      * 회원가입 
      * DB 함수호출
+     * 20 params
      * @param email
      * @param nickname
      * @param birthDt
@@ -40,12 +41,13 @@ public interface MemberRepository extends JpaRepository<MemberEntity, BigInteger
      * @param mobileNumb
      * @param regionCd
      * @param pushAlive
+     * @param snsId
      */
     @Query(value = "SELECT * FROM users.register_member(" +
            ":email, :nickname, :birthDt, :gender, :snsDiv, " +
            ":invitationCd, :inviterCd, :missionYn, :pushTkn, :snsVal, " +
            ":model, :appVers, :osVers, :osName, :dupliTkn, " +
-           ":lang, :mobileNumb, :regionCd, :pushAlive)", nativeQuery = true)
+           ":lang, :mobileNumb, :regionCd, :pushAlive, :snsId)", nativeQuery = true)
     Map<String, Object> registerMember(
         @Param("email") String email,
         @Param("nickname") String nickname,
@@ -65,6 +67,7 @@ public interface MemberRepository extends JpaRepository<MemberEntity, BigInteger
         @Param("lang") String lang,
         @Param("mobileNumb") String mobileNumb,
         @Param("regionCd") String regionCd,
-        @Param("pushAlive") String pushAlive
+        @Param("pushAlive") String pushAlive,
+        @Param("snsId") String snsId
     );
 }

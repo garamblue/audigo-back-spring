@@ -1,7 +1,5 @@
 package com.audigo.audigo_back.controller.admin;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,13 +24,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Tag(name = "Admin Auth API", description = "관리자 권한 관련 API")
 @RestController
 @RequestMapping("/api/adm/auth")
 @RequiredArgsConstructor
 public class AdminAuthController {
-    private static final Log logger = LogFactory.getLog(AdminAuthController.class);
 
     private final AdminAuthService adminAuthService;
 
@@ -88,7 +87,7 @@ public class AdminAuthController {
     })
     @PostMapping("/sign-in")
     public ResponseEntity<? super AdminSignInResponseDto> signIn(@RequestBody @Valid AdminSignInRequestDto requestBody) {
-        logger.info("============ Admin LoginId: " + requestBody.getId());
+        log.info("============ Admin LoginId: " + requestBody.getId());
 
         ResponseEntity<? super AdminSignInResponseDto> response = adminAuthService.signIn(requestBody);
 
@@ -111,7 +110,7 @@ public class AdminAuthController {
     })
     @GetMapping("info")
     public ResponseEntity<? super AdminSignInInfoResponseDto> getAdminsInfo(@AuthenticationPrincipal String id) {
-        logger.info("=== AuthenticationPrincipal id: " + id);
+        log.info("=== AuthenticationPrincipal id: " + id);
 
         ResponseEntity<? super AdminSignInInfoResponseDto> response = adminAuthService.getAdminsInfo(id);
         

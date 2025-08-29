@@ -1,6 +1,7 @@
 package com.audigo.audigo_back.controller.admin;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.audigo.audigo_back.dto.request.admin.board.PostBoardRequestDto;
@@ -8,11 +9,13 @@ import com.audigo.audigo_back.dto.request.admin.board.PostCommentRequestDto;
 import com.audigo.audigo_back.dto.response.CommonResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetLatestBoardListResponseDto;
+import com.audigo.audigo_back.dto.response.admin.board.GetPaginationResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetCommentListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetFavoriteListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostCommentResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PutFavoriteResponseDto;
+import com.audigo.audigo_back.entity.BoardListViewEntity;
 import com.audigo.audigo_back.service.admin.BoardService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -29,6 +32,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -81,6 +85,32 @@ public class BoardController {
         ResponseEntity<? super GetLatestBoardListResponseDto> response = boardService.getLatestBoardList();
         return response;
     }
+
+    /**
+     * Paged list 조회
+     * @param page
+     * @param countPerPage
+     * @return
+     */
+    @Operation(summary = "Paged 게시물 조회", description = "isPaged 파라미터 값이 true이면 페이징 처리한 결과 반환.")
+    @ApiResponses({
+        @ApiResponse(responseCode = "SU", description = "조회성공", content = @Content(mediaType = "application/json")),
+        @ApiResponse(responseCode = "DBE", description = "DATABASE_ERROR", content = @Content(mediaType = "application/json"))
+    })
+    @Parameters({
+        @Parameter(name = "page", description = "현재 페이지", required = true, example = "1")
+        ,@Parameter(name = "countPerPage", description = "페이지당 게시물 수", required = true, example = "3")
+        ,@Parameter(name = "isPaged", description = "페이징 처리 여부", required = true, example = "true")
+    })
+    @GetMapping("/paged-list")
+    public ResponseEntity<? super GetPaginationResponseDto> getPagedList(
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "3") int countPerPage,
+            @RequestParam(defaultValue = "true") boolean isPaged) {
+        ResponseEntity<? super GetPaginationResponseDto> response = boardService.getPagedList(page, countPerPage, isPaged);
+        return response;
+    }
+
 
     /**
      * 게시물 등록

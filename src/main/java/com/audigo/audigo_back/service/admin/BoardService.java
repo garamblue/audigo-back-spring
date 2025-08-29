@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.audigo.audigo_back.dto.request.admin.board.PostBoardRequestDto;
 import com.audigo.audigo_back.dto.request.admin.board.PostCommentRequestDto;
@@ -12,6 +13,7 @@ import com.audigo.audigo_back.dto.response.admin.board.GetBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetCommentListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetFavoriteListResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.GetLatestBoardListResponseDto;
+import com.audigo.audigo_back.dto.response.admin.board.GetPaginationResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostCommentResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PutFavoriteResponseDto;
@@ -41,6 +43,9 @@ public interface BoardService {
 
     // 최근 게시물 조회
     ResponseEntity<? super GetLatestBoardListResponseDto> getLatestBoardList();
+
+    // 페이징 처리된 게시물 조회
+    ResponseEntity<? super GetPaginationResponseDto> getPagedList(int page, int countPerPage, boolean isPaged);
 
     // 게시물 조회
     CommonResponseDto<List<Map<String, Object>>> getAllBoard();

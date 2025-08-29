@@ -1,7 +1,5 @@
 package com.audigo.audigo_back.service.implement.app;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +10,12 @@ import com.audigo.audigo_back.repository.app.UserRepository;
 import com.audigo.audigo_back.service.app.UserService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
-    private static final Log logger = LogFactory.getLog(UserServiceImpl.class);
 
     private final UserRepository userRepository;
 
@@ -27,14 +25,12 @@ public class UserServiceImpl implements UserService {
         UserEntity userEntity = null;
 
         try {
-
             userEntity = userRepository.findByEmail(email);
-            logger.info("=== UserServiceImpl findByEmail : " + email);
 
             if (userEntity == null)
                 return GetSignInUserResponseDto.noMatchedUser();
 
-            logger.info("=== UserServiceImpl findByEmail result : " + userEntity.toString());
+            log.info("=== UserServiceImpl findByEmail result : " + userEntity.toString());
 
         } catch (Exception exception) {
             exception.printStackTrace();

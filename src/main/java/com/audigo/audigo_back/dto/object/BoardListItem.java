@@ -30,6 +30,7 @@ public class BoardListItem {
 
     public BoardListItem(BoardListViewEntity boardListViewEntity) {
         this.bIdx = boardListViewEntity.getBIdx();
+        this.aIdx = boardListViewEntity.getAIdx();
         this.id = boardListViewEntity.getId();
         this.boardType = boardListViewEntity.getBoardType();
         this.title = boardListViewEntity.getTitle();

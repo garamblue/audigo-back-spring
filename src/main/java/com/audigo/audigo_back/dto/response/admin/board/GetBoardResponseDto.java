@@ -17,7 +17,7 @@ import lombok.Getter;
 
 @Getter
 public class GetBoardResponseDto extends ResponseDto {
-
+    //GetBoardResponseDto Data_Transfer_Object
     private int bIdx;
     private int aIdx;
     private String boardType;

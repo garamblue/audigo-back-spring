@@ -17,6 +17,8 @@ public class BoardListViewEntity {
     @Id
     @Column(name = "b_idx")
     private int bIdx;
+    @Column(name = "a_idx")
+    private int aIdx;
     @Column(name = "id")
     private String id;
     private String title;

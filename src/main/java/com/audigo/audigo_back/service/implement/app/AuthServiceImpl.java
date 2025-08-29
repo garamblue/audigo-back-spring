@@ -1,7 +1,5 @@
 package com.audigo.audigo_back.service.implement.app;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,11 +18,12 @@ import com.audigo.audigo_back.repository.app.MemberRepository;
 import com.audigo.audigo_back.service.app.AuthService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
-    private static final Log logger = LogFactory.getLog(AuthServiceImpl.class);
 
     private final MemberRepository memberRepository;//DI
 
@@ -32,6 +31,9 @@ public class AuthServiceImpl implements AuthService {
     // private final JwtProvider jwtProvider;
     private final JWTUtil jwtUtil;
 
+    /**
+     * 회원가입
+     */
     @Override
     public ResponseEntity<? super SignUpResponseDto> signUp(SignUpRequestDto dto) {
         try {
@@ -74,21 +76,22 @@ public class AuthServiceImpl implements AuthService {
                 dto.getLang() != null ? dto.getLang() : "",
                 dto.getMobileNumb() != null ? dto.getMobileNumb() : "",
                 dto.getRegionCd() != null ? dto.getRegionCd() : "",
-                dto.getPushAlive() != null ? dto.getPushAlive() : ""
+                dto.getPushAlive() != null ? dto.getPushAlive() : "",
+                dto.getSnsId() != null ? dto.getSnsId() : ""
             );
             
-            logger.info("=== registerMember result: " + result);
+            log.info("=== registerMember result: " + result);
             
             // 반환된 데이터 사용 예시
             if (result != null) {
-                logger.info("=== result keys: " + result.keySet());
+                log.info("=== result keys: " + result.keySet());
                 
                 // 컴럼명으로 직접 접근
-                logger.info("=== m_idx: " + result.get("m_idx"));
-                logger.info("=== email: " + result.get("email"));
-                logger.info("=== logical_id: " + result.get("logical_id"));
-                logger.info("=== join_dt: " + result.get("join_dt"));
-                logger.info("=== seq: " + result.get("seq"));
+                log.info("=== m_idx: " + result.get("m_idx"));
+                log.info("=== email: " + result.get("email"));
+                log.info("=== logical_id: " + result.get("logical_id"));
+                log.info("=== join_dt: " + result.get("join_dt"));
+                log.info("=== seq: " + result.get("seq"));
             }
 
         } catch (Exception exception) {
@@ -99,20 +102,23 @@ public class AuthServiceImpl implements AuthService {
         return SignUpResponseDto.success();
     }
 
+    /**
+     * 로그인
+     */
     @Override
     public ResponseEntity<? super SignInResponseDto> signIn(SignInRequestDto dto) {
         String token = null;
 
         try {
             String email = dto.getEmail();
-            logger.info("=== AuthServiceImpl signIn email: " + email);
+            log.info("=== AuthServiceImpl signIn email: " + email);
 
             MemberEntity memEntity = memberRepository.findByEmail(email);
 
             if (memEntity == null)
                 return SignInResponseDto.signInFail();
 
-            logger.info("=== AuthServiceImpl memEntity : " + memEntity.toString());
+            log.info("=== AuthServiceImpl memEntity : " + memEntity.toString());
 
             //String password = dto.getPassword();
             //String encodedPassword = userEntity.getPassword();
@@ -122,7 +128,7 @@ public class AuthServiceImpl implements AuthService {
 
             // 1시간 = 60분 × 60초 × 1000밀리초 = 3,600,000 밀리초
             token = jwtUtil.createJwtWithEmail(email, 3600000L);
-            logger.info("=== AuthServiceImpl token : " + token.toString());
+            log.info("=== AuthServiceImpl token : " + token.toString());
 
         } catch (Exception exception) {
             exception.printStackTrace();

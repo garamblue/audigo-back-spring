@@ -1,7 +1,5 @@
 package com.audigo.audigo_back.service.implement.admin;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,11 +17,12 @@ import com.audigo.audigo_back.repository.admin.AdminRepository;
 import com.audigo.audigo_back.service.admin.AdminAuthService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AdminAuthServiceImpl implements AdminAuthService{
-    private static final Log logger = LogFactory.getLog(AdminAuthServiceImpl.class);
 
     private final AdminRepository adminRepository;//DI
 
@@ -72,7 +71,7 @@ public class AdminAuthServiceImpl implements AdminAuthService{
             String password = dto.getPwd();
 
             String encdPwd = passwordEncoder.encode(password);
-            logger.info("=== matches : (" + encdPwd + " : " + encodedPwd + " )");
+            log.info("=== matches : (" + encdPwd + " : " + encodedPwd + " )");
             
             boolean isMatched = passwordEncoder.matches(password, encodedPwd);
 
@@ -81,7 +80,7 @@ public class AdminAuthServiceImpl implements AdminAuthService{
             
             // 1시간 = 60분 × 60초 × 1000밀리초 = 3,600,000 밀리초
             token = jwtUtil.createJwtWithId(id, 3600000L);
-            logger.info("=== Admin JWToken : " + token.toString());
+            log.info("=== Admin JWToken : " + token.toString());
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,6 +1,7 @@
 package com.audigo.audigo_back.entity;
 
 import java.math.BigInteger;
+import java.util.Map;
 
 import com.audigo.audigo_back.dto.request.app.auth.SignUpRequestDto;
 
@@ -54,6 +55,9 @@ public class MemberEntity {
     @Column(name = "sns_div")
     private String snsDiv;
     
+    @Column(name = "sns_id")
+    private String snsId;
+
     @Column(name = "mobile_numb")
     private String mobileNumb;
 
@@ -64,7 +68,21 @@ public class MemberEntity {
         this.birthDt = dto.getBirthDt();
         this.gender = dto.getGender();
         this.snsDiv = dto.getSnsDiv();
+        this.snsId = dto.getSnsId();
         this.mobileNumb = dto.getMobileNumb();
+    }
+
+    public MemberEntity(Map<String, Object> hashMap) {        
+        this.status = (String) hashMap.get("status");
+        this.email = (String) hashMap.get("email");
+        this.nickname = (String) hashMap.get("nickname");
+        this.birthDt = (String) hashMap.get("birth_dt");
+        this.snsDiv = (String) hashMap.get("sns_div");
+        this.snsId = (String) hashMap.get("sns_id");
+        this.mobileNumb = (String) hashMap.get("mobile_numb");
+        //this.osVers = (String) hashMap.get("os_vers");
+        //this.osName = (String) hashMap.get("os_name");
+        //this.snsVal = (String) hashMap.get("sns_val");
     }
 
     @Override
