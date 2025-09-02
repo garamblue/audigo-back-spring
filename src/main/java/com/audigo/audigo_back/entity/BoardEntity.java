@@ -17,7 +17,9 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -84,7 +86,12 @@ public class BoardEntity {
         this.content = dto.getContent();
         this.titleEn = dto.getTitleEn();
         this.contentEn = dto.getContentEn();
-        this.publishDt = Timestamp.valueOf(dto.getPublishDt());
+        try {
+            this.publishDt = Timestamp.valueOf(dto.getPublishDt());
+        } catch (IllegalArgumentException e) {
+            log.info("=== Invalid timestamp format for publishDt: " + dto.getPublishDt() + ". Expected format: yyyy-MM-dd HH:mm:ss");
+            throw new IllegalArgumentException("=== Invalid timestamp format for publishDt: ", e);
+        }
         this.cdt = now;
         this.favoriteCnt = 0;
         this.commentCnt = 0;

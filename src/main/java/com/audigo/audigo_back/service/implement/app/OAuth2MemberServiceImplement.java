@@ -49,6 +49,10 @@ public class OAuth2MemberServiceImplement extends DefaultOAuth2UserService {
             nickname = (String) profile.get("nickname");
             //String profileImage = (String) profile.get("profile_image_url");
 
+            log.info("★ ★ ★ ======================================");
+            log.info("=== kakaoAccount: " + kakaoAccount.toString());
+            log.info("=== profile: " + profile.toString());
+            log.info("★ ★ ★ ======================================");
             // 우리 서비스에서 쓰기 좋은 형태로 가공한 Map mapped.put("", "");
             mapped.put("provider", "kakao");
             mapped.put("id", id);
@@ -88,7 +92,7 @@ public class OAuth2MemberServiceImplement extends DefaultOAuth2UserService {
                 id
             );
             log.info("★ ★ ★ ======================================");
-            log.info("=== registerMember result: " + result.toString());
+            log.info("=== registerMember mapped: " + mapped.toString());
             log.info("★ ★ ★ ======================================");
         }
 

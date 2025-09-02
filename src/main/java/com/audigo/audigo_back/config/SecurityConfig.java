@@ -65,7 +65,7 @@ public class SecurityConfig {
         http.httpBasic((auth) -> auth.disable());
 
         http.authorizeHttpRequests((auth) -> auth
-                .requestMatchers("/", "/main", "/api/v1/board/**", "/api/v1/auth/**", "/api/v1/user/**",
+                .requestMatchers("/", "/main", "/api/v1/board/**", "/api/v1/auth/**", "/api/v1/user/**", "/api/v1/push/**",
                         "/api/adm/auth/**", "/file/**", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/oauth2/**")
                 .permitAll()
                 .requestMatchers("/admin").hasRole("ADMIN")
