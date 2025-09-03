@@ -31,8 +31,8 @@ public class SwaggerConfig {
 
     private Info apiInfo() {
         return new Info()
-                .title("AUDIGO API Site & 명세서 - SpringBoot_V1_Priv") // API 제목
-                .description("Audigo API Web Site With Spring Boot 3.3.12") // API 설명
+                .title("AUDIGO API Site & API 명세서 - SpringBoot_V1") // API 제목
+                .description("Audigo API Site With Spring Boot 3.3.12") // API 설명
                 .version("1.0.1"); // API 버전
     }
 }

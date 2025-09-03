@@ -31,7 +31,7 @@ public class MainController {
 
     @GetMapping("/main")
     public String mainP() {
-        log.info("Hello this is Audigo's backend API service");
+        //log.info("Hello this is Audigo's backend API service");
         return "Hello this is Audigo's backend API service ~ !";
     }
 
