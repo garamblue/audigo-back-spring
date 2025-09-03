@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.audigo.audigo_back.dto.request.app.push.PushRequestDto;
-import com.audigo.audigo_back.dto.response.app.auth.SignUpResponseDto;
 import com.audigo.audigo_back.dto.response.app.push.PushResponseDto;
 import com.audigo.audigo_back.service.app.NotificationService;
 

@@ -15,7 +15,6 @@ import com.audigo.audigo_back.dto.response.admin.board.GetFavoriteListResponseDt
 import com.audigo.audigo_back.dto.response.admin.board.PostBoardResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PostCommentResponseDto;
 import com.audigo.audigo_back.dto.response.admin.board.PutFavoriteResponseDto;
-import com.audigo.audigo_back.entity.BoardListViewEntity;
 import com.audigo.audigo_back.service.admin.BoardService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -28,11 +27,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +40,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
+@Slf4j
 @Tag(name = "Board API", description = "공지사항 & 게시판 API")
 @RestController
 @RequestMapping("/api/v1/board")
