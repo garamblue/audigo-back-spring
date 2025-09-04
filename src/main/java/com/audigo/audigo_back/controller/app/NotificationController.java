@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Tag(name = "Push message API", description = "push message 를 전송하는 API")
+@Tag(name = "Push message API", description = "push message 전송 API")
 @RestController
 @RequestMapping("/api/v1/push")
 @RequiredArgsConstructor
@@ -30,11 +30,11 @@ public class NotificationController {
     private final NotificationService notificationService;
 
     /**
-     * 푸시 메시지 전송
+     * push message 전송
      * @param requestDto
      * @return
      */
-    @Operation(summary = "push message send", description = "사용자에게 push message 를 보냅니다.")
+    @Operation(summary = "push message send", description = "사용자에게 push message 를 보냅니다. audigo-test-app-firebase-*** 형식의 json 파일을 firebase에서 생성해야합니다.")
     @ApiResponses({
         @ApiResponse(responseCode = "SU", description = "전송성공", content = @Content(mediaType = "application/json")),
         @ApiResponse(responseCode = "DBE", description = "DATABASE_ERROR", content = @Content(mediaType = "application/json"))
