@@ -85,11 +85,17 @@ jobs:
           script: |
             set -euo pipefail
 
+            # Runner의 github.sha 컨텍스트 값을 commit_sha 셸 변수에 저장합니다.
+            commit_sha="${{ github.sha }}"
+
             APP_DIR="${{ secrets.PROD_APP_DIR }}"
             SERVICE="${{ secrets.PROD_SERVICE }}"
             SRC_BASENAME="${{ env.JAR_BASE }}"
             UPLOADED="$APP_DIR/releases/$SRC_BASENAME"
-            RELEASE="$APP_DIR/releases/audigo-back-spring-${GITHUB_SHA}.jar"
+
+            # GITHUB_SHA 대신 새로 정의한 commit_sha 변수를 사용합니다.
+            RELEASE="$APP_DIR/releases/audigo-back-spring-${commit_sha}.jar"
+            
             FINAL="$APP_DIR/build/libs/audigo-back-spring.jar"
 
             # 업로드된 파일 이름을 커밋ID로 표준화
