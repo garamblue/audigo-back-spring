@@ -29,10 +29,4 @@ public class MainController {
         return "ok";
     }
 
-    @GetMapping("/main")
-    public String mainP() {
-        //log.info("Hello this is Audigo's backend API service");
-        return "Hello this is Audigo's backend API service ~ !";
-    }
-
 }
