@@ -2,6 +2,7 @@ package com.audigo.audigo_back.config;
 
 import java.io.InputStream;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
@@ -16,7 +17,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Configuration
 public class FCMConfig {
-    private static final String FIREBASE_CONFIG_PATH = "fcm_auth.json";
+    
+    @Value("${firebase.config.path}")
+    private String FIREBASE_CONFIG_PATH;
 
     @PostConstruct
     public void initialize() {
