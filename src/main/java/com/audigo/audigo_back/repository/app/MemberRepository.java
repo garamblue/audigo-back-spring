@@ -16,6 +16,8 @@ public interface MemberRepository extends JpaRepository<MemberEntity, BigInteger
 
     boolean existsByNickname(String nickname);
 
+    boolean existsByMobileNumb(String mobileNumb);
+
     MemberEntity findByEmail(String email);
 
     /**
@@ -31,23 +33,24 @@ public interface MemberRepository extends JpaRepository<MemberEntity, BigInteger
      * @param inviterCd
      * @param missionYn
      * @param pushTkn
+     * @param refreshTkn
+     * @param snsId
      * @param snsVal
      * @param model
      * @param appVers
      * @param osVers
      * @param osName
-     * @param dupliTkn
      * @param lang
      * @param mobileNumb
      * @param regionCd
      * @param pushAlive
-     * @param snsId
+     * @return
      */
     @Query(value = "SELECT * FROM users.register_member(" +
            ":email, :nickname, :birthDt, :gender, :snsDiv, " +
-           ":invitationCd, :inviterCd, :missionYn, :pushTkn, :snsVal, " +
-           ":model, :appVers, :osVers, :osName, :dupliTkn, " +
-           ":lang, :mobileNumb, :regionCd, :pushAlive, :snsId)", nativeQuery = true)
+           ":invitationCd, :inviterCd, :missionYn, :pushTkn, :refreshTkn, " +
+           ":snsId, :snsVal, :model, :appVers, :osVers, :osName, " +
+           ":lang, :mobileNumb, :regionCd, :pushAlive)", nativeQuery = true)
     Map<String, Object> registerMember(
         @Param("email") String email,
         @Param("nickname") String nickname,
@@ -58,16 +61,16 @@ public interface MemberRepository extends JpaRepository<MemberEntity, BigInteger
         @Param("inviterCd") String inviterCd,
         @Param("missionYn") String missionYn,
         @Param("pushTkn") String pushTkn,
+        @Param("refreshTkn") String refreshTkn,
+        @Param("snsId") String snsId,
         @Param("snsVal") String snsVal,
         @Param("model") String model,
         @Param("appVers") String appVers,
         @Param("osVers") String osVers,
         @Param("osName") String osName,
-        @Param("dupliTkn") String dupliTkn,
         @Param("lang") String lang,
         @Param("mobileNumb") String mobileNumb,
         @Param("regionCd") String regionCd,
-        @Param("pushAlive") String pushAlive,
-        @Param("snsId") String snsId
+        @Param("pushAlive") String pushAlive
     );
 }

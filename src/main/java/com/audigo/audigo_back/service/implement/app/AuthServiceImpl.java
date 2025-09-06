@@ -1,8 +1,6 @@
 package com.audigo.audigo_back.service.implement.app;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -27,8 +25,6 @@ public class AuthServiceImpl implements AuthService {
 
     private final MemberRepository memberRepository;//DI
 
-    // private final UserRepository userRepository;
-    // private final JwtProvider jwtProvider;
     private final JWTUtil jwtUtil;
 
     /**
@@ -36,6 +32,7 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     public ResponseEntity<? super SignUpResponseDto> signUp(SignUpRequestDto dto) {
+        String accessToken = "";
         try {
             // not null 이나 duplicate check 진행
             String email = dto.getEmail();
@@ -47,19 +44,23 @@ public class AuthServiceImpl implements AuthService {
             boolean existedNickname = memberRepository.existsByNickname(nickname); //userRepository
             if (existedNickname)
                 return SignUpResponseDto.duplicateNickname();
-            /*
-            String telNumber = dto.getTelNumber();
-            boolean existedTelnumber = userRepository.existsByTelNumber(telNumber);
-            if (existedTelnumber)
-                return SignUpResponseDto.duplicateTelNumber();
+            
+            String mobileNumb = dto.getMobileNumb();
+            boolean existedMobileNumb = memberRepository.existsByMobileNumb(mobileNumb);
+            if (existedMobileNumb)
+                return SignUpResponseDto.duplicateMobileNumber();
 
-            UserEntity userEntity = new UserEntity(dto);
-            userRepository.save(userEntity);
-            */
+            // 3시간
+            accessToken = jwtUtil.createJwtWithEmail(email, 3);
+            log.info("=== Member's Access Token : " + accessToken.toString());
+            // 2160시간 = 90일
+            String refreshToken = jwtUtil.createRefreshToken(email, nickname, mobileNumb, 2160);
+            log.info("=== Member's Refresh Token : " + refreshToken.toString());
+
             // PostgreSQL FUNCTION 호출 및 결과 반환
             Map<String, Object> result = memberRepository.registerMember(
-                dto.getEmail() != null ? dto.getEmail() : "",
-                dto.getNickname() != null ? dto.getNickname() : "",
+                dto.getEmail() != null ? dto.getEmail() : "must_have_email",
+                dto.getNickname() != null ? dto.getNickname() : "must_have_nickname",
                 dto.getBirthDt() != null ? dto.getBirthDt() : "",
                 dto.getGender() != null ? dto.getGender() : "",
                 dto.getSnsDiv() != null ? dto.getSnsDiv() : "",
@@ -67,20 +68,18 @@ public class AuthServiceImpl implements AuthService {
                 dto.getInviterCd() != null ? dto.getInviterCd() : "",
                 dto.getMissionYn() != null ? dto.getMissionYn() : "",
                 dto.getPushTkn() != null ? dto.getPushTkn() : "",
+                refreshToken,
+                dto.getSnsId() != null ? dto.getSnsId() : "must_have_sns_id",
                 dto.getSnsVal() != null ? dto.getSnsVal() : "",
                 dto.getModel() != null ? dto.getModel() : "",
                 dto.getAppVers() != null ? dto.getAppVers() : "",
                 dto.getOsVers() != null ? dto.getOsVers() : "",
                 dto.getOsName() != null ? dto.getOsName() : "",
-                dto.getDupliTkn() != null ? dto.getDupliTkn() : "",
                 dto.getLang() != null ? dto.getLang() : "",
-                dto.getMobileNumb() != null ? dto.getMobileNumb() : "",
+                dto.getMobileNumb() != null ? dto.getMobileNumb() : "00011112222",
                 dto.getRegionCd() != null ? dto.getRegionCd() : "",
-                dto.getPushAlive() != null ? dto.getPushAlive() : "",
-                dto.getSnsId() != null ? dto.getSnsId() : ""
+                dto.getPushAlive() != null ? dto.getPushAlive() : ""
             );
-            
-            log.info("=== registerMember result: " + result);
             
             // 반환된 데이터 사용 예시
             if (result != null) {
@@ -99,7 +98,7 @@ public class AuthServiceImpl implements AuthService {
             return ResponseDto.databaseError();
         }
 
-        return SignUpResponseDto.success();
+        return SignUpResponseDto.success(accessToken);
     }
 
     /**
@@ -127,7 +126,7 @@ public class AuthServiceImpl implements AuthService {
             //    return SignInResponseDto.signInFail();
 
             // 1시간 = 60분 × 60초 × 1000밀리초 = 3,600,000 밀리초
-            token = jwtUtil.createJwtWithEmail(email, 3600000L);
+            token = jwtUtil.createJwtWithEmail(email, 3);
             log.info("=== AuthServiceImpl token : " + token.toString());
 
         } catch (Exception exception) {

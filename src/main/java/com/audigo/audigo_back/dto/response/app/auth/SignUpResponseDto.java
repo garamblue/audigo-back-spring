@@ -11,13 +11,15 @@ import lombok.Getter;
 
 @Getter
 public class SignUpResponseDto extends ResponseDto {
+    private String token;
 
-    private SignUpResponseDto() {
+    private SignUpResponseDto(String token) {
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
+        this.token = token;
     }
 
-    public static ResponseEntity<SignUpResponseDto> success() {
-        SignUpResponseDto result = new SignUpResponseDto();
+    public static ResponseEntity<SignUpResponseDto> success(String token) {
+        SignUpResponseDto result = new SignUpResponseDto(token);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
@@ -31,8 +33,8 @@ public class SignUpResponseDto extends ResponseDto {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
     }
 
-    public static ResponseEntity<ResponseDto> duplicateTelNumber() {
-        ResponseDto result = new ResponseDto(ResponseCode.DUPLICATE_TEL_NUMBER, ResponseMessage.DUPLICATE_TEL_NUMBER);
+    public static ResponseEntity<ResponseDto> duplicateMobileNumber() {
+        ResponseDto result = new ResponseDto(ResponseCode.DUPLICATE_MOBILE_NUMBER, ResponseMessage.DUPLICATE_MOBILE_NUMBER);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
     }
 

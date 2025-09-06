@@ -41,7 +41,7 @@ public class AdminAuthServiceImpl implements AdminAuthService{
 
             //password encode
             String password = dto.getPwd();
-            String encodedPwd = passwordEncoder.encode(password);
+            String encodedPwd = passwordEncoder.encode(password);//AES256 방식 암호화로 수정하기
             dto.setPwd(encodedPwd);
 
             //save
