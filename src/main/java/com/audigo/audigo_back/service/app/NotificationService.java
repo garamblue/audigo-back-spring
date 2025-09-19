@@ -35,6 +35,7 @@ public class NotificationService {
             String response = FirebaseMessaging.getInstance().send(message);
             log.info("=========================================");
             log.info("Successfully sent message: " + response);
+            //        Successfully sent message: projects/greever-394502/messages/0:1757985804108392%e5d7c00de5d7c00d
             log.info("=========================================");
             // DB처리도 추가
         } catch (Exception e) {
