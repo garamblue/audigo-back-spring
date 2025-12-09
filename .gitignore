@@ -1,4 +1,12 @@
-HELP.md
+# Windows reserved filename
+nul
+
+# Documentation (allow important docs)
+!README.md
+!REWARD_SYSTEM_MIGRATION.md
+!MARKETPLACE_MIGRATION.md
+!REPOSITORY_FIXES.md
+
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
