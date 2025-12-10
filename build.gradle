@@ -44,6 +44,13 @@ dependencies {
 	// Firebase Admin SDK for push message
     implementation 'com.google.firebase:firebase-admin:9.2.0'
 
+	// Web3j for Ethereum/BSC blockchain interaction
+	implementation 'org.web3j:core:4.12.2'
+
+	// AWS SDK for KMS (Key Management Service)
+	implementation 'software.amazon.awssdk:kms:2.29.37'
+	implementation 'software.amazon.awssdk:auth:2.29.37'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	runtimeOnly 'org.postgresql:postgresql'
