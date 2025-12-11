@@ -48,3 +48,9 @@ out/
 ### Application Properties ###
 src/main/resources/application.properties
 src/main/resources/application-*.properties
+
+### Secret Files ###
+src/main/resources/firebase/
+src/main/resources/fcm_auth.json
+src/main/resources/**/*firebase*.json
+src/main/resources/**/*adminsdk*.json
