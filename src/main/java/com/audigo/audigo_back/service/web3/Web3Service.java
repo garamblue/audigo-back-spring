@@ -5,6 +5,7 @@ import com.audigo.audigo_back.dto.response.web3.TransactionResponse;
 import com.audigo.audigo_back.dto.response.web3.WalletResponse;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 /**
  * Web3 서비스 인터페이스
@@ -14,22 +15,22 @@ public interface Web3Service {
     /**
      * 지갑 등록 (회원가입 시 10 토큰 지급)
      */
-    WalletResponse registerWallet(Long mIdx, String walletAddress);
+    WalletResponse registerWallet(BigInteger mIdx, String walletAddress);
 
     /**
      * 지갑 주소 변경
      */
-    WalletResponse changeWallet(Long mIdx, String newWalletAddress);
+    WalletResponse changeWallet(BigInteger mIdx, String newWalletAddress);
 
     /**
      * 토큰 잔액 조회
      */
-    TokenBalanceResponse getTokenBalance(Long mIdx);
+    TokenBalanceResponse getTokenBalance(BigInteger mIdx);
 
     /**
      * 보상금을 토큰으로 스왑
      */
-    TransactionResponse swapRewardToToken(Long mIdx, BigDecimal rewardAmount);
+    TransactionResponse swapRewardToToken(BigInteger mIdx, BigDecimal rewardAmount);
 
     /**
      * 스왑 수수료 조회

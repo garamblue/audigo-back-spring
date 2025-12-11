@@ -16,6 +16,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 
 import com.audigo.audigo_back.handler.OAuth2SuccessHandler;
 import com.audigo.audigo_back.jwt.JWTAuthFilter;
+import com.audigo.audigo_back.security.JwtAuthenticationFilter;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ public class SecurityConfig {
     
     // DI for addFilterBefore
     private final JWTAuthFilter jwtAuthFilter;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final DefaultOAuth2UserService oAuth2UserService;
     private final OAuth2SuccessHandler oAuth2SuccessHandler;
 
@@ -79,7 +81,9 @@ public class SecurityConfig {
         );
         //http.oauth2Login(Customizer.withDefaults());
         
+        // JWT 인증 필터 추가 (기존 필터와 새 필터 모두 사용)
         http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         http.sessionManagement((session) -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS));// 제일 중요한 부분!

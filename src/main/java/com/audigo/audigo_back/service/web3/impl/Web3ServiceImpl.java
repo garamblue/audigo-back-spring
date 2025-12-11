@@ -66,7 +66,7 @@ public class Web3ServiceImpl implements Web3Service {
      */
     @Override
     @Transactional
-    public WalletResponse registerWallet(Long mIdx, String walletAddress) {
+    public WalletResponse registerWallet(BigInteger mIdx, String walletAddress) {
         log.info("Register wallet for member: {}, address: {}", mIdx, walletAddress);
 
         // 주소 유효성 검증
@@ -114,7 +114,7 @@ public class Web3ServiceImpl implements Web3Service {
      */
     @Override
     @Transactional
-    public WalletResponse changeWallet(Long mIdx, String newWalletAddress) {
+    public WalletResponse changeWallet(BigInteger mIdx, String newWalletAddress) {
         log.info("Change wallet for member: {}, new address: {}", mIdx, newWalletAddress);
 
         // 주소 유효성 검증
@@ -144,7 +144,7 @@ public class Web3ServiceImpl implements Web3Service {
      * 토큰 잔액 조회
      */
     @Override
-    public TokenBalanceResponse getTokenBalance(Long mIdx) {
+    public TokenBalanceResponse getTokenBalance(BigInteger mIdx) {
         try {
             EWalletEntity wallet = eWalletRepository.findByMIdx(mIdx)
                     .orElseThrow(() -> new RuntimeException("Wallet not found for member: " + mIdx));
@@ -190,7 +190,7 @@ public class Web3ServiceImpl implements Web3Service {
      */
     @Override
     @Transactional
-    public TransactionResponse swapRewardToToken(Long mIdx, BigDecimal rewardAmount) {
+    public TransactionResponse swapRewardToToken(BigInteger mIdx, BigDecimal rewardAmount) {
         log.info("Swap reward to token for member: {}, amount: {}", mIdx, rewardAmount);
 
         // 스왑 금액 검증 (1000~10000, 100 단위)
@@ -209,7 +209,7 @@ public class Web3ServiceImpl implements Web3Service {
         }
 
         // 보상금 잔액 확인
-        RewardBalanceEntity rewardBalance = rewardBalanceRepository.findByMIdx(BigInteger.valueOf(mIdx))
+        RewardBalanceEntity rewardBalance = rewardBalanceRepository.findByMIdx(mIdx)
                 .orElseThrow(() -> new RuntimeException("Reward balance not found"));
 
         if (rewardBalance.getSumAmt().compareTo(rewardAmount) < 0) {
@@ -235,7 +235,7 @@ public class Web3ServiceImpl implements Web3Service {
 
         // 교환 내역 저장
         RewardExchangeEntity exchangeHistory = new RewardExchangeEntity();
-        exchangeHistory.setMIdx(BigInteger.valueOf(mIdx));
+        exchangeHistory.setMIdx(mIdx);
         exchangeHistory.setRAmt(rewardAmount);
         exchangeHistory.setCd("R0000"); // SWAP
         exchangeHistory.setTableNm("C001013"); // INN_TX_HIS code

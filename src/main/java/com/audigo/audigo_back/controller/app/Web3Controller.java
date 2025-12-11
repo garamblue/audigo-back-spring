@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Map;
 
 /**
@@ -38,7 +39,7 @@ public class Web3Controller {
             @RequestBody Map<String, String> request
     ) {
         try {
-            Long mIdx = Long.valueOf(userDetails.getUsername());
+            BigInteger mIdx = new BigInteger(userDetails.getUsername());
             String walletAddress = request.get("addr");
 
             if (walletAddress == null || walletAddress.isEmpty()) {
@@ -70,7 +71,7 @@ public class Web3Controller {
             @RequestBody Map<String, String> request
     ) {
         try {
-            Long mIdx = Long.valueOf(userDetails.getUsername());
+            BigInteger mIdx = new BigInteger(userDetails.getUsername());
             String newWalletAddress = request.get("addr");
 
             if (newWalletAddress == null || newWalletAddress.isEmpty()) {
@@ -98,7 +99,7 @@ public class Web3Controller {
             @AuthenticationPrincipal UserDetails userDetails
     ) {
         try {
-            Long mIdx = Long.valueOf(userDetails.getUsername());
+            BigInteger mIdx = new BigInteger(userDetails.getUsername());
             TokenBalanceResponse response = web3Service.getTokenBalance(mIdx);
             return ResponseEntity.ok(response);
 
@@ -121,7 +122,7 @@ public class Web3Controller {
             @RequestBody Map<String, Object> request
     ) {
         try {
-            Long mIdx = Long.valueOf(userDetails.getUsername());
+            BigInteger mIdx = new BigInteger(userDetails.getUsername());
             BigDecimal rewardAmount = new BigDecimal(request.get("rwds").toString());
 
             TransactionResponse response = web3Service.swapRewardToToken(mIdx, rewardAmount);

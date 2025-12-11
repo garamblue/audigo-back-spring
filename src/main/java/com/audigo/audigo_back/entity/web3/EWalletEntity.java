@@ -27,10 +27,13 @@ public class EWalletEntity {
     private Long ewIdx;
 
     @Column(name = "m_idx", nullable = false)
-    private Long mIdx;  // 회원 ID
+    private java.math.BigInteger mIdx;  // 회원 ID
 
     @Column(name = "addr", length = 42)
     private String addr;  // 지갑 주소 (0x...)
+
+    @Column(name = "server_key", length = 100)
+    private String serverKey;  // 서버 키
 
     @Column(name = "token_amt", precision = 30, scale = 10)
     private BigDecimal tokenAmt = BigDecimal.ZERO;  // 토큰 잔액
