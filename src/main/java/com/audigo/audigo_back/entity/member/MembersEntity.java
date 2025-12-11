@@ -52,6 +52,19 @@ public class MembersEntity {
     @Column(name = "cdt")
     private LocalDateTime cdt; // 생성일시
 
+    @Column(name = "udt")
+    private LocalDateTime udt; // 수정일시
+
     @Column(name = "lv_dt")
     private LocalDateTime lvDt; // 탈퇴일시
+
+    @PrePersist
+    protected void onCreate() {
+        cdt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        udt = LocalDateTime.now();
+    }
 }

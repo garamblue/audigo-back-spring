@@ -436,4 +436,86 @@ public class MemberAuthService {
 
         return response;
     }
+
+    /**
+     * 회원 프로필 조회
+     */
+    @Transactional(readOnly = true)
+    public Map<String, Object> getMemberProfile(BigInteger mIdx) {
+        // 1. 회원 정보 조회
+        MembersEntity member = membersRepository.findById(mIdx)
+                .orElseThrow(() -> new IllegalStateException("회원 정보를 찾을 수 없습니다."));
+
+        // 탈퇴 회원 확인
+        if ("3".equals(member.getStts()) || member.getLvDt() != null) {
+            throw new IllegalStateException("탈퇴한 회원입니다.");
+        }
+
+        // 2. 타임존 조회
+        MembersTimezoneEntity timezone = membersTimezoneRepository.findActiveByMIdx(mIdx)
+                .orElseThrow(() -> new IllegalStateException("타임존 정보를 찾을 수 없습니다."));
+
+        // 3. SNS 목록 조회
+        String snsDivList = membersSnsRepository.findSnsListByMIdx(mIdx).orElse("");
+
+        // 4. 보상 잔액 조회
+        RewardBalanceEntity rewardBalance = rewardBalanceRepository.findByMIdx(mIdx)
+                .orElse(null);
+        BigDecimal rewardAmt = rewardBalance != null ? rewardBalance.getSumAmt() : BigDecimal.ZERO;
+
+        // 5. 지갑 정보 조회 (성인만)
+        String walletAddr = "";
+        BigDecimal tokenAmt = BigDecimal.ZERO;
+        BigDecimal bnbAmt = BigDecimal.ZERO;
+
+        if ("1".equals(member.getStts()) || "2".equals(member.getStts())) {
+            EWalletEntity wallet = eWalletRepository.findByMIdx(mIdx).orElse(null);
+            if (wallet != null) {
+                walletAddr = wallet.getAddr() != null ? wallet.getAddr() : "";
+                tokenAmt = wallet.getTokenAmt();
+                bnbAmt = wallet.getBnbAmt();
+            }
+        }
+
+        // 6. 스킨 정보 조회
+        List<SkinExchangeEntity> skins = skinExchangeRepository.findByMIdxOrderByCdtDesc(mIdx);
+        String skin2D = "";
+        String skin3D = "";
+        String face = "";
+
+        if (!skins.isEmpty()) {
+            SkinExchangeEntity latestSkin = skins.get(0);
+            // TODO: 스킨 상세 정보 조회 로직 추가 필요
+        }
+
+        // 7. 응답 데이터 생성
+        Map<String, Object> response = new HashMap<>();
+
+        Map<String, Object> info = new HashMap<>();
+        info.put("sns", snsDivList);
+        info.put("stts", member.getStts());
+        info.put("nickname", member.getNickname());
+        info.put("birth_dt", member.getBirthDt().toString());
+        info.put("gender", member.getGender());
+        info.put("invit_cd", member.getInvitCd());
+        info.put("state", member.getState());
+        info.put("mobile_num", member.getMobileNum());
+        info.put("ext_key", member.getExtKey());
+        info.put("region_cd", timezone.getRegionCd());
+        info.put("mobile_tz", timezone.getMobileTz());
+        info.put("wallet_addr", walletAddr);
+        info.put("cdt", member.getCdt().toString());
+
+        response.put("info", info);
+        response.put("skin2D", skin2D);
+        response.put("skin3D", skin3D);
+        response.put("face", face);
+        response.put("rwds", rewardAmt);
+        response.put("token_amt", tokenAmt.toPlainString());
+        response.put("bnb_amt", bnbAmt.toPlainString());
+
+        log.info("프로필 조회 성공: mIdx={}, nickname={}", mIdx, member.getNickname());
+
+        return response;
+    }
 }

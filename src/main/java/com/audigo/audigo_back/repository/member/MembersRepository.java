@@ -37,4 +37,9 @@ public interface MembersRepository extends JpaRepository<MembersEntity, BigInteg
     List<MembersEntity> findByEmailAndMobileOrBirth(@Param("email") String email,
                                                       @Param("mobileNum") String mobileNum,
                                                       @Param("birthDt") LocalDate birthDt);
+
+    /**
+     * 닉네임 중복 확인
+     */
+    boolean existsByNickname(String nickname);
 }
