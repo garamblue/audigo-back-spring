@@ -7,6 +7,7 @@ import com.audigo.audigo_back.entity.reward.RewardExchangeEntity;
 import com.audigo.audigo_back.repository.gamification.*;
 import com.audigo.audigo_back.repository.reward.RewardBalanceRepository;
 import com.audigo.audigo_back.repository.reward.RewardExchangeRepository;
+import com.audigo.audigo_back.repository.reward.RewardPolicyRepository;
 import com.audigo.audigo_back.repository.reward.RewardTopupRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
