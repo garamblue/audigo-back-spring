@@ -18,12 +18,14 @@ public interface AdminsLogHisRepository extends JpaRepository<AdminsLogHisEntity
     /**
      * 관리자 ID로 로그 목록 조회 (최신순)
      */
-    List<AdminsLogHisEntity> findByAIdxOrderByCdtDesc(BigInteger aIdx);
+    @Query("SELECT l FROM AdminsLogHisEntity l WHERE l.aIdx = :aIdx ORDER BY l.cdt DESC")
+    List<AdminsLogHisEntity> findByAIdxOrderByCdtDesc(@Param("aIdx") BigInteger aIdx);
 
     /**
      * 관리자 ID로 로그 페이징 조회
      */
-    Page<AdminsLogHisEntity> findByAIdx(BigInteger aIdx, Pageable pageable);
+    @Query("SELECT l FROM AdminsLogHisEntity l WHERE l.aIdx = :aIdx")
+    Page<AdminsLogHisEntity> findByAIdx(@Param("aIdx") BigInteger aIdx, Pageable pageable);
 
     /**
      * 메뉴 코드로 로그 목록 조회

@@ -16,7 +16,8 @@ public interface AdminsDetectedDeviceRepository extends JpaRepository<AdminsDete
     /**
      * 관리자 ID로 기기 목록 조회
      */
-    List<AdminsDetectedDeviceEntity> findByAIdx(BigInteger aIdx);
+    @Query("SELECT d FROM AdminsDetectedDeviceEntity d WHERE d.aIdx = :aIdx")
+    List<AdminsDetectedDeviceEntity> findByAIdx(@Param("aIdx") BigInteger aIdx);
 
     /**
      * 관리자의 승인된 기기 목록 조회

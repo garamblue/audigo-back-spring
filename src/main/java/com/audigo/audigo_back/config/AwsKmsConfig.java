@@ -2,6 +2,7 @@ package com.audigo.audigo_back.config;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import software.amazon.awssdk.services.kms.KmsClient;
  */
 @Configuration
 @ConfigurationProperties(prefix = "aws.kms")
+@ConditionalOnProperty(prefix = "aws.kms", name = "enabled", havingValue = "true", matchIfMissing = false)
 @Getter
 @Setter
 public class AwsKmsConfig {

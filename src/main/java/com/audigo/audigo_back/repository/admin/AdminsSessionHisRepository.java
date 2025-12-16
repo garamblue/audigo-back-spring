@@ -22,7 +22,8 @@ public interface AdminsSessionHisRepository extends JpaRepository<AdminsSessionH
     /**
      * 관리자 ID로 세션 목록 조회 (최신순)
      */
-    List<AdminsSessionHisEntity> findByAIdxOrderByLoginDtDesc(BigInteger aIdx);
+    @Query("SELECT s FROM AdminsSessionHisEntity s WHERE s.aIdx = :aIdx ORDER BY s.loginDt DESC")
+    List<AdminsSessionHisEntity> findByAIdxOrderByLoginDtDesc(@Param("aIdx") BigInteger aIdx);
 
     /**
      * 관리자의 활성 세션 조회

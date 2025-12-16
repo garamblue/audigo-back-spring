@@ -1,9 +1,14 @@
 package com.audigo.audigo_back.service.gamification;
 
 import com.audigo.audigo_back.dto.response.gamification.*;
-import com.audigo.audigo_back.entity.gamification.*;
+import com.audigo.audigo_back.entity.gamification.AttendanceEntity;
+import com.audigo.audigo_back.entity.gamification.HoroscopeDailyEntity;
+import com.audigo.audigo_back.entity.gamification.HoroscopeHisEntity;
+import com.audigo.audigo_back.entity.gamification.RouletteCouponEntity;
+import com.audigo.audigo_back.entity.gamification.RouletteHisEntity;
 import com.audigo.audigo_back.entity.reward.RewardBalanceEntity;
 import com.audigo.audigo_back.entity.reward.RewardExchangeEntity;
+import com.audigo.audigo_back.entity.reward.RewardPolicyEntity;
 import com.audigo.audigo_back.repository.gamification.*;
 import com.audigo.audigo_back.repository.reward.RewardBalanceRepository;
 import com.audigo.audigo_back.repository.reward.RewardExchangeRepository;

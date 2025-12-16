@@ -1,6 +1,5 @@
 package com.audigo.audigo_back.entity;
 
-
 import java.sql.Timestamp;
 
 import com.audigo.audigo_back.dto.request.admin.auth.AdminSignUpRequestDto;
@@ -23,21 +22,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "admin")
-@Table(name = "admin", schema = "users")
+@Table(name = "admins", schema = "users")
 public class AdminEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//자동생성
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동생성
     @Column(name = "a_idx")
     private Integer aIdx;
-
-    @Column(name = "org_cd")
-    private String orgCd;
-
-    @Column(name = "cmp_cd")
-    private String cmpCd;
-
-    @Column(name = "dept_cd")
-    private String deptCd;
 
     @Column(name = "id")
     private String id;
@@ -51,26 +41,8 @@ public class AdminEntity {
     @Column(name = "mobile")
     private String mobile;
 
-    @Column(name = "os_type")
-    private String osType;
-
-    @Column(name = "push_key")
-    private String pushKey;
-
     @Column(name = "role_cd")
     private String roleCd;
-
-    @Column(name = "last_ip")
-    private String lastIp;
-
-    @Column(name = "last_login_dt")
-    private Timestamp lastLoginDt;
-
-    @Column(name = "conn_info")
-    private String connInfo;
-
-    @Column(name = "remember_yn")
-    private String rememberYn;
 
     @Column(name = "act_yn")
     private String actYn;
@@ -81,11 +53,14 @@ public class AdminEntity {
     @Column(name = "udt")
     private Timestamp udt;
 
+    @Column(name = "c_aidx")
+    private Integer cAidx;
+
     @PrePersist
     protected void onCreate() {
         cdt = new Timestamp(System.currentTimeMillis());
         udt = new Timestamp(System.currentTimeMillis());
-        lastLoginDt = new Timestamp(System.currentTimeMillis());
+        // lastLoginDt = new Timestamp(System.currentTimeMillis());
     }
 
     @PreUpdate
@@ -95,22 +70,14 @@ public class AdminEntity {
 
     // API request body 에 실제 보이는 양식
     public AdminEntity(AdminSignUpRequestDto dto) {
-        this.orgCd = dto.getOrgCd();
-        this.cmpCd = dto.getCmpCd();
-        this.deptCd = dto.getDeptCd();
         this.id = dto.getId();
         this.pwd = dto.getPwd();
         this.nm = dto.getNm();
         this.mobile = dto.getMobile();
-        this.osType = dto.getOsType();
-        this.pushKey = dto.getPushKey();
         this.roleCd = dto.getRoleCd();
-        this.lastIp = dto.getLastIp();
-        this.connInfo = dto.getConnInfo();
-        this.rememberYn = dto.getRememberYn();
         this.actYn = dto.getActYn();
+        this.cAidx = Integer.parseInt(dto.getCAidx());
     }
-
 
     @Override
     public String toString() {
@@ -118,10 +85,7 @@ public class AdminEntity {
                 + "[id: " + id + "]"
                 + "[pwd: " + pwd + "]"
                 + "[nm: " + nm + "]"
-                + "[roleCd: " + roleCd + "]"
-                + "[lastIp: " + lastIp + "]"
-                + "[lastLoginDt: " + lastLoginDt + "]"
-                + "[rememberYn: " + rememberYn + "]";
+                + "[roleCd: " + roleCd + "]";
     }
 
 }

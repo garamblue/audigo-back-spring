@@ -15,7 +15,8 @@ public interface EWalletRepository extends JpaRepository<EWalletEntity, Long> {
     /**
      * 회원 ID로 지갑 조회
      */
-    Optional<EWalletEntity> findByMIdx(BigInteger mIdx);
+    @Query("SELECT e FROM EWalletEntity e WHERE e.mIdx = :mIdx")
+    Optional<EWalletEntity> findByMIdx(@Param("mIdx") BigInteger mIdx);
 
     /**
      * 지갑 주소로 조회

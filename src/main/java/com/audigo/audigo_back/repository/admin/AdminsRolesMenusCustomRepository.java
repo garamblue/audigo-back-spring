@@ -16,17 +16,20 @@ public interface AdminsRolesMenusCustomRepository extends JpaRepository<AdminsRo
     /**
      * 관리자 ID로 커스텀 권한 목록 조회
      */
-    List<AdminsRolesMenusCustomEntity> findByAIdx(BigInteger aIdx);
+    @Query("SELECT a FROM AdminsRolesMenusCustomEntity a WHERE a.aIdx = :aIdx")
+    List<AdminsRolesMenusCustomEntity> findByAIdx(@Param("aIdx") BigInteger aIdx);
 
     /**
      * 관리자 ID와 메뉴 코드로 커스텀 권한 조회
      */
-    Optional<AdminsRolesMenusCustomEntity> findByAIdxAndMenuCd(BigInteger aIdx, String menuCd);
+    @Query("SELECT a FROM AdminsRolesMenusCustomEntity a WHERE a.aIdx = :aIdx AND a.menuCd = :menuCd")
+    Optional<AdminsRolesMenusCustomEntity> findByAIdxAndMenuCd(@Param("aIdx") BigInteger aIdx, @Param("menuCd") String menuCd);
 
     /**
      * 관리자의 모든 커스텀 권한 삭제
      */
-    void deleteByAIdx(BigInteger aIdx);
+    @Query("DELETE FROM AdminsRolesMenusCustomEntity a WHERE a.aIdx = :aIdx")
+    void deleteByAIdx(@Param("aIdx") BigInteger aIdx);
 
     /**
      * 특정 관리자에게 특정 커스텀 권한이 있는지 확인

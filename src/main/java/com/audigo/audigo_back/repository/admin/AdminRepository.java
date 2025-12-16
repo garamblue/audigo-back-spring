@@ -18,7 +18,7 @@ public interface AdminRepository extends JpaRepository<AdminEntity, Integer> {
 
     AdminEntity findByaIdx(Integer aIdx);
 
-    @Query(value = "SELECT a_idx FROM users.admin WHERE id = :id", nativeQuery = true)
+    @Query(value = "SELECT a_idx FROM users.admins WHERE id = :id", nativeQuery = true)
     Integer findAIdxById(@Param("id") String id);
     
 }

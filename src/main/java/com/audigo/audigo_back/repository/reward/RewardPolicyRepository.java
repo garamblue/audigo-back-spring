@@ -48,7 +48,7 @@ public interface RewardPolicyRepository extends JpaRepository<RewardPolicyEntity
     /**
      * 룰렛 보상 정책 조회 (언어별)
      */
-    @Query("SELECT r FROM RewardPolicyEntity r WHERE r.cdTp = 'RL' AND r.stts = 'Y' AND r.lang = :lang ORDER BY r.rAmt DESC")
+    @Query("SELECT r FROM RewardPolicyEntity r WHERE r.cd LIKE 'RL%' AND r.stts = 'Y' AND r.lang = :lang ORDER BY r.rAmt DESC")
     List<RewardPolicyEntity> findRouletteRewardsByLang(@Param("lang") String lang);
 
     /**
