@@ -9,84 +9,119 @@ import com.audigo.audigo_back.dto.request.admin.auth.AdminSignInRequestDto;
 import com.audigo.audigo_back.dto.request.admin.auth.AdminSignUpRequestDto;
 import com.audigo.audigo_back.dto.response.ResponseDto;
 import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
-import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInResponseDto;
-import com.audigo.audigo_back.dto.response.admin.auth.AdminSignUpResponseDto;
 import com.audigo.audigo_back.entity.AdminEntity;
 import com.audigo.audigo_back.jwt.JWTUtil;
 import com.audigo.audigo_back.repository.admin.AdminRepository;
 import com.audigo.audigo_back.service.admin.AdminAuthService;
+import com.audigo.audigo_back.util.AesUtil;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class AdminAuthServiceImpl implements AdminAuthService{
 
-    private final AdminRepository adminRepository;//DI
-
+    private final AdminRepository adminRepository;
     private final JWTUtil jwtUtil;
+    private final AesUtil aesUtil;
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
-    public ResponseEntity<? super AdminSignUpResponseDto> register(AdminSignUpRequestDto dto) {
+    public Map<String, Object> register(String encryptedData) {
         try {
-            // not null 이나 duplicate check 진행
+            // 복호화
+            AdminSignUpRequestDto dto = aesUtil.decryptAdmin(encryptedData, AdminSignUpRequestDto.class);
+
+            // Validation
+            if (dto.getId() == null || dto.getPwd() == null || dto.getNm() == null) {
+                throw new IllegalArgumentException("Required fields are missing");
+            }
+
+            // duplicate check
             String id = dto.getId();
             boolean existedId = adminRepository.existsById(id);
-            if (existedId)
-                return AdminSignUpResponseDto.duplicateId();
+            if (existedId) {
+                Map<String, Object> response = new HashMap<>();
+                response.put("code", "0");
+                response.put("msg", "Duplicate ID");
+                return response;
+            }
 
-            //password encode
+            // password encode
             String password = dto.getPwd();
-            String encodedPwd = passwordEncoder.encode(password);//AES256 방식 암호화로 수정하기
+            String encodedPwd = passwordEncoder.encode(password);
             dto.setPwd(encodedPwd);
 
-            //save
+            // save
             AdminEntity adminEntity = new AdminEntity(dto);
             adminRepository.save(adminEntity);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return AdminSignUpResponseDto.duplicateId();
-        }
+            Map<String, Object> response = new HashMap<>();
+            response.put("code", "1");
+            response.put("msg", "success");
+            return response;
 
-        return AdminSignUpResponseDto.success();
+        } catch (Exception e) {
+            log.error("Admin register error", e);
+            throw new RuntimeException("Admin register failed", e);
+        }
     }
 
     @Override
-    public ResponseEntity<? super AdminSignInResponseDto> signIn(AdminSignInRequestDto dto) {
-        String token = null;
-
+    public Map<String, Object> signIn(String encryptedData) {
         try {
+            // 복호화
+            AdminSignInRequestDto dto = aesUtil.decryptAdmin(encryptedData, AdminSignInRequestDto.class);
+
+            // Validation
+            if (dto.getId() == null || dto.getPwd() == null) {
+                throw new IllegalArgumentException("Required fields are missing");
+            }
+
             String id = dto.getId();
             AdminEntity adminEntity = adminRepository.findById(id);
 
-            if (adminEntity == null)
-                return AdminSignInResponseDto.notExistedAdmin();
+            if (adminEntity == null) {
+                Map<String, Object> response = new HashMap<>();
+                response.put("code", "0");
+                response.put("msg", "Admin not found");
+                return response;
+            }
 
             String encodedPwd = adminEntity.getPwd();
             String password = dto.getPwd();
 
-            String encdPwd = passwordEncoder.encode(password);
-            log.info("=== matches : (" + encdPwd + " : " + encodedPwd + " )");
-            
             boolean isMatched = passwordEncoder.matches(password, encodedPwd);
 
-            if (!isMatched)
-                return AdminSignInResponseDto.signInFail();
-            
+            if (!isMatched) {
+                Map<String, Object> response = new HashMap<>();
+                response.put("code", "0");
+                response.put("msg", "Sign in failed");
+                return response;
+            }
+
             // 1시간 = 60분 × 60초 × 1000밀리초 = 3,600,000 밀리초
-            token = jwtUtil.createJwtWithId(id, 3600000L);
-            log.info("=== Admin JWToken : " + token.toString());
+            String token = jwtUtil.createJwtWithId(id, 3600000L);
+            log.info("=== Admin JWToken : " + token);
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("code", "1");
+            response.put("msg", "success");
+            response.put("accessToken", token);
+            response.put("id", id);
+            response.put("nm", adminEntity.getNm());
+            return response;
 
         } catch (Exception e) {
-            e.printStackTrace();
-            return AdminSignInResponseDto.databaseError();
+            log.error("Admin sign in error", e);
+            throw new RuntimeException("Admin sign in failed", e);
         }
-        return AdminSignInResponseDto.success(token);
     }
 
     /**

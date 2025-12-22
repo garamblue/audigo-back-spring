@@ -2,16 +2,14 @@ package com.audigo.audigo_back.service.admin;
 
 import org.springframework.http.ResponseEntity;
 
-import com.audigo.audigo_back.dto.request.admin.auth.AdminSignUpRequestDto;
-import com.audigo.audigo_back.dto.request.admin.auth.AdminSignInRequestDto;
 import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
-import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInResponseDto;
-import com.audigo.audigo_back.dto.response.admin.auth.AdminSignUpResponseDto;
+
+import java.util.Map;
 
 public interface AdminAuthService {
-    ResponseEntity<? super AdminSignUpResponseDto> register(AdminSignUpRequestDto dto);
+    Map<String, Object> register(String encryptedData);
 
-    ResponseEntity<? super AdminSignInResponseDto> signIn(AdminSignInRequestDto dto);
+    Map<String, Object> signIn(String encryptedData);
 
     ResponseEntity<? super AdminSignInInfoResponseDto> getAdminsInfo(String id);
 }
