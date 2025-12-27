@@ -48,6 +48,7 @@ out/
 ### Application Properties ###
 src/main/resources/application.properties
 src/main/resources/application-*.properties
+prod.env
 
 ### Secret Files ###
 src/main/resources/firebase/
