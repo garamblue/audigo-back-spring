@@ -90,7 +90,9 @@ public class MemberAuthController {
             // 회원가입 처리
             Map<String, Object> response = memberAuthService.signUp(encryptedData);
 
-            return ResponseEntity.ok(response);
+            // 응답 암호화
+            String encryptedResponse = aesUtil.encryptMember(response);
+            return ResponseEntity.ok(Map.of("data", encryptedResponse));
 
         } catch (IllegalArgumentException e) {
             log.error("SignUp validation error: {}", e.getMessage());
@@ -190,7 +192,9 @@ public class MemberAuthController {
             // 로그인 처리
             Map<String, Object> response = memberAuthService.signIn(encryptedData);
 
-            return ResponseEntity.ok(response);
+            // 응답 암호화
+            String encryptedResponse = aesUtil.encryptMember(response);
+            return ResponseEntity.ok(Map.of("data", encryptedResponse));
 
         } catch (IllegalArgumentException e) {
             log.error("SignIn validation error: {}", e.getMessage());

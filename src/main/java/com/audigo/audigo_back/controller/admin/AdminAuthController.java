@@ -1,5 +1,6 @@
 package com.audigo.audigo_back.controller.admin;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import com.audigo.audigo_back.dto.response.admin.auth.AdminSignUpResponseDto;
 import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
 import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInResponseDto;
 import com.audigo.audigo_back.service.admin.AdminAuthService;
+import com.audigo.audigo_back.util.AesUtil;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -48,6 +50,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AdminAuthController {
 
     private final AdminAuthService adminAuthService;
+    private final AesUtil aesUtil;
 
     /**
      * 관리자 최초 등록
@@ -76,9 +79,45 @@ public class AdminAuthController {
         ,@Parameter(name = "connInfo", description = "접속정보", required = false, example = "connInfo")
     })
     @PostMapping("/register")
-    public ResponseEntity<? super AdminSignUpResponseDto> register(@RequestBody @Valid AdminSignUpRequestDto requestBody) {
-        ResponseEntity<? super AdminSignUpResponseDto> response = adminAuthService.register(requestBody);
-        return response;
+    public ResponseEntity<Map<String, Object>> register(@RequestBody Map<String, String> request) {
+        try {
+            String encryptedData = request.get("data");
+
+            if (encryptedData == null || encryptedData.isEmpty()) {
+                Map<String, Object> errorResponse = Map.of(
+                    "code", "0",
+                    "msg", "Missing encrypted data"
+                );
+                String encryptedError = aesUtil.encryptAdmin(errorResponse);
+                return ResponseEntity.badRequest().body(Map.of("data", encryptedError));
+            }
+
+            // 관리자 등록 처리
+            Map<String, Object> response = adminAuthService.register(encryptedData);
+
+            // 응답 암호화
+            String encryptedResponse = aesUtil.encryptAdmin(response);
+            return ResponseEntity.ok(Map.of("data", encryptedResponse));
+
+        } catch (IllegalArgumentException e) {
+            log.error("Register validation error: {}", e.getMessage());
+            Map<String, Object> errorResponse = Map.of(
+                "code", "0",
+                "msg", e.getMessage()
+            );
+            String encryptedError = aesUtil.encryptAdmin(errorResponse);
+            return ResponseEntity.badRequest().body(Map.of("data", encryptedError));
+
+        } catch (Exception e) {
+            log.error("Register error", e);
+            Map<String, Object> errorResponse = Map.of(
+                "code", "0",
+                "msg", "관리자 등록 처리 중 오류가 발생했습니다."
+            );
+            String encryptedError = aesUtil.encryptAdmin(errorResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("data", encryptedError));
+        }
     }
 
 
@@ -100,12 +139,45 @@ public class AdminAuthController {
         @Parameter(name = "password", description = "8 ~ 50자 이내", required = true, example = "12345678")
     })
     @PostMapping("/sign-in")
-    public ResponseEntity<? super AdminSignInResponseDto> signIn(@RequestBody @Valid AdminSignInRequestDto requestBody) {
-        log.info("============ Admin LoginId: " + requestBody.getId());
+    public ResponseEntity<Map<String, Object>> signIn(@RequestBody Map<String, String> request) {
+        try {
+            String encryptedData = request.get("data");
 
-        ResponseEntity<? super AdminSignInResponseDto> response = adminAuthService.signIn(requestBody);
+            if (encryptedData == null || encryptedData.isEmpty()) {
+                Map<String, Object> errorResponse = Map.of(
+                    "code", "0",
+                    "msg", "Missing encrypted data"
+                );
+                String encryptedError = aesUtil.encryptAdmin(errorResponse);
+                return ResponseEntity.badRequest().body(Map.of("data", encryptedError));
+            }
 
-        return response;
+            // 로그인 처리
+            Map<String, Object> response = adminAuthService.signIn(encryptedData);
+
+            // 응답 암호화
+            String encryptedResponse = aesUtil.encryptAdmin(response);
+            return ResponseEntity.ok(Map.of("data", encryptedResponse));
+
+        } catch (IllegalArgumentException e) {
+            log.error("SignIn validation error: {}", e.getMessage());
+            Map<String, Object> errorResponse = Map.of(
+                "code", "0",
+                "msg", e.getMessage()
+            );
+            String encryptedError = aesUtil.encryptAdmin(errorResponse);
+            return ResponseEntity.badRequest().body(Map.of("data", encryptedError));
+
+        } catch (Exception e) {
+            log.error("SignIn error", e);
+            Map<String, Object> errorResponse = Map.of(
+                "code", "0",
+                "msg", "로그인 처리 중 오류가 발생했습니다."
+            );
+            String encryptedError = aesUtil.encryptAdmin(errorResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("data", encryptedError));
+        }
     }
 
     /**
