@@ -56,3 +56,4 @@ src/main/java/com/audigo/audigo_back/
 - 파일 업로드/다운로드
 - 멀티 데이터베이스 지원
 - API 문서 자동 생성
+- 연결된 repository: 
