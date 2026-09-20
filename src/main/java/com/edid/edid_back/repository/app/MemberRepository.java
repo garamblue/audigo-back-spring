@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.repository.app;
+package com.edid.edid_back.repository.app;
 
 import java.math.BigInteger;
 import java.util.Map;
@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.audigo.audigo_back.entity.MemberEntity;
+import com.edid.edid_back.entity.MemberEntity;
 
 @Repository
 public interface MemberRepository extends JpaRepository<MemberEntity, BigInteger>{

@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.scheduler;
+package com.edid.edid_back.repository.scheduler;
 
-import com.audigo.audigo_back.entity.scheduler.ExchangeRatioEntity;
+import com.edid.edid_back.entity.scheduler.ExchangeRatioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

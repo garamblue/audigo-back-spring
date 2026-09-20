@@ -1,14 +1,14 @@
-package com.audigo.audigo_back.service.reward.impl;
+package com.edid.edid_back.service.reward.impl;
 
-import com.audigo.audigo_back.dto.request.reward.RewardAdjustRequestDto;
-import com.audigo.audigo_back.dto.request.reward.RewardExchangeRequestDto;
-import com.audigo.audigo_back.dto.request.reward.RewardTopupRequestDto;
-import com.audigo.audigo_back.dto.response.reward.RewardBalanceResponseDto;
-import com.audigo.audigo_back.dto.response.reward.RewardExpirationResponseDto;
-import com.audigo.audigo_back.dto.response.reward.RewardHistoryResponseDto;
-import com.audigo.audigo_back.entity.reward.*;
-import com.audigo.audigo_back.repository.reward.*;
-import com.audigo.audigo_back.service.reward.RewardService;
+import com.edid.edid_back.dto.request.reward.RewardAdjustRequestDto;
+import com.edid.edid_back.dto.request.reward.RewardExchangeRequestDto;
+import com.edid.edid_back.dto.request.reward.RewardTopupRequestDto;
+import com.edid.edid_back.dto.response.reward.RewardBalanceResponseDto;
+import com.edid.edid_back.dto.response.reward.RewardExpirationResponseDto;
+import com.edid.edid_back.dto.response.reward.RewardHistoryResponseDto;
+import com.edid.edid_back.entity.reward.*;
+import com.edid.edid_back.repository.reward.*;
+import com.edid.edid_back.service.reward.RewardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;

@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.service.implement;
+package com.edid.edid_back.service.implement;
 
 import java.io.File;
 import java.util.UUID;
@@ -9,7 +9,7 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.audigo.audigo_back.service.FileService;
+import com.edid.edid_back.service.FileService;
 
 @Service
 public class FileServiceImpl implements FileService {

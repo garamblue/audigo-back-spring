@@ -1,8 +1,8 @@
-package com.audigo.audigo_back.controller.external;
+package com.edid.edid_back.controller.external;
 
-import com.audigo.audigo_back.dto.request.external.PincruxRewardRequest;
-import com.audigo.audigo_back.dto.response.external.LinkPriceBannerResponse;
-import com.audigo.audigo_back.service.external.ExternalApiService;
+import com.edid.edid_back.dto.request.external.PincruxRewardRequest;
+import com.edid.edid_back.dto.response.external.LinkPriceBannerResponse;
+import com.edid.edid_back.service.external.ExternalApiService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

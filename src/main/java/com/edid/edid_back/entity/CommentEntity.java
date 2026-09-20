@@ -1,10 +1,10 @@
-package com.audigo.audigo_back.entity;
+package com.edid.edid_back.entity;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
-import com.audigo.audigo_back.dto.request.admin.board.PostCommentRequestDto;
+import com.edid.edid_back.dto.request.admin.board.PostCommentRequestDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,8 +1,8 @@
-package com.audigo.audigo_back.controller.app;
+package com.edid.edid_back.controller.app;
 
-import com.audigo.audigo_back.dto.request.market.ExchangeRequestDto;
-import com.audigo.audigo_back.dto.response.market.ProductListResponseDto;
-import com.audigo.audigo_back.service.market.MarketplaceService;
+import com.edid.edid_back.dto.request.market.ExchangeRequestDto;
+import com.edid.edid_back.dto.response.market.ProductListResponseDto;
+import com.edid.edid_back.service.market.MarketplaceService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

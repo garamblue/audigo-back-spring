@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.service.gamification;
+package com.edid.edid_back.service.gamification;
 
-import com.audigo.audigo_back.dto.response.gamification.*;
+import com.edid.edid_back.dto.response.gamification.*;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

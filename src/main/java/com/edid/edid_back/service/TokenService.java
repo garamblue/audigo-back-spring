@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.service;
+package com.edid.edid_back.service;
 
 import java.sql.Timestamp;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.audigo.audigo_back.entity.RefreshTokenEntity;
-import com.audigo.audigo_back.jwt.JWTUtil;
-import com.audigo.audigo_back.repository.RefreshTokenRepository;
+import com.edid.edid_back.entity.RefreshTokenEntity;
+import com.edid.edid_back.jwt.JWTUtil;
+import com.edid.edid_back.repository.RefreshTokenRepository;
 
 import lombok.RequiredArgsConstructor;
 

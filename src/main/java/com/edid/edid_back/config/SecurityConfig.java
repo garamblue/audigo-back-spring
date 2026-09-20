@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.config;
+package com.edid.edid_back.config;
 
 import java.util.Collections;
 
@@ -14,9 +14,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-import com.audigo.audigo_back.handler.OAuth2SuccessHandler;
-import com.audigo.audigo_back.jwt.JWTAuthFilter;
-import com.audigo.audigo_back.security.JwtAuthenticationFilter;
+import com.edid.edid_back.handler.OAuth2SuccessHandler;
+import com.edid.edid_back.jwt.JWTAuthFilter;
+import com.edid.edid_back.security.JwtAuthenticationFilter;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;

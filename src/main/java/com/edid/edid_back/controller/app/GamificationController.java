@@ -1,7 +1,7 @@
-package com.audigo.audigo_back.controller.app;
+package com.edid.edid_back.controller.app;
 
-import com.audigo.audigo_back.dto.response.gamification.*;
-import com.audigo.audigo_back.service.gamification.GamificationService;
+import com.edid.edid_back.dto.response.gamification.*;
+import com.edid.edid_back.service.gamification.GamificationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

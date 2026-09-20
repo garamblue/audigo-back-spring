@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.admin;
+package com.edid.edid_back.repository.admin;
 
-import com.audigo.audigo_back.entity.admin.AdminsMenusEntity;
+import com.edid.edid_back.entity.admin.AdminsMenusEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

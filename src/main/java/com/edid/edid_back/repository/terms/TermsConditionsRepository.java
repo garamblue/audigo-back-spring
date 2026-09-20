@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.terms;
+package com.edid.edid_back.repository.terms;
 
-import com.audigo.audigo_back.entity.terms.TermsConditionsEntity;
+import com.edid.edid_back.entity.terms.TermsConditionsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

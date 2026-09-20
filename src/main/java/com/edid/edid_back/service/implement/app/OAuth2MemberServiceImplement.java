@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.service.implement.app;
+package com.edid.edid_back.service.implement.app;
 
 import java.util.*;
 
@@ -10,8 +10,8 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
-import com.audigo.audigo_back.entity.CustomOAuth2Member;
-import com.audigo.audigo_back.repository.app.MemberRepository;
+import com.edid.edid_back.entity.CustomOAuth2Member;
+import com.edid.edid_back.repository.app.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

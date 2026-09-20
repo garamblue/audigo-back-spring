@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.reward;
+package com.edid.edid_back.repository.reward;
 
-import com.audigo.audigo_back.entity.reward.RewardBalanceEntity;
+import com.edid.edid_back.entity.reward.RewardBalanceEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Modifying;

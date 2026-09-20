@@ -1,9 +1,9 @@
-package com.audigo.audigo_back.service.admin;
+package com.edid.edid_back.service.admin;
 
-import com.audigo.audigo_back.entity.admin.*;
-import com.audigo.audigo_back.repository.admin.*;
-import com.audigo.audigo_back.util.AesUtil;
-import com.audigo.audigo_back.util.JwtUtil;
+import com.edid.edid_back.entity.admin.*;
+import com.edid.edid_back.repository.admin.*;
+import com.edid.edid_back.util.AesUtil;
+import com.edid.edid_back.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.controller.admin;
+package com.edid.edid_back.controller.admin;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.audigo.audigo_back.dto.request.admin.auth.AdminSignUpRequestDto;
-import com.audigo.audigo_back.dto.request.admin.auth.AdminSignInRequestDto;
-import com.audigo.audigo_back.dto.response.admin.auth.AdminSignUpResponseDto;
-import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
-import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInResponseDto;
-import com.audigo.audigo_back.service.admin.AdminAuthService;
-import com.audigo.audigo_back.util.AesUtil;
+import com.edid.edid_back.dto.request.admin.auth.AdminSignUpRequestDto;
+import com.edid.edid_back.dto.request.admin.auth.AdminSignInRequestDto;
+import com.edid.edid_back.dto.response.admin.auth.AdminSignUpResponseDto;
+import com.edid.edid_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
+import com.edid.edid_back.dto.response.admin.auth.AdminSignInResponseDto;
+import com.edid.edid_back.service.admin.AdminAuthService;
+import com.edid.edid_back.util.AesUtil;
 
 import java.util.Map;
 import java.util.HashMap;

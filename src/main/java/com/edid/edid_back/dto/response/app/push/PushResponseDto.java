@@ -1,12 +1,12 @@
-package com.audigo.audigo_back.dto.response.app.push;
+package com.edid.edid_back.dto.response.app.push;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.audigo.audigo_back.common.ResponseCode;
-import com.audigo.audigo_back.common.ResponseMessage;
-import com.audigo.audigo_back.dto.request.app.push.PushRequestDto;
-import com.audigo.audigo_back.dto.response.ResponseDto;
+import com.edid.edid_back.common.ResponseCode;
+import com.edid.edid_back.common.ResponseMessage;
+import com.edid.edid_back.dto.request.app.push.PushRequestDto;
+import com.edid.edid_back.dto.response.ResponseDto;
 
 import lombok.Getter;
 

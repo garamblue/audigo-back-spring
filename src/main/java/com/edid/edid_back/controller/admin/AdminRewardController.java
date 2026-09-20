@@ -1,7 +1,7 @@
-package com.audigo.audigo_back.controller.admin;
+package com.edid.edid_back.controller.admin;
 
-import com.audigo.audigo_back.dto.request.reward.RewardAdjustRequestDto;
-import com.audigo.audigo_back.service.reward.RewardService;
+import com.edid.edid_back.dto.request.reward.RewardAdjustRequestDto;
+import com.edid.edid_back.service.reward.RewardService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

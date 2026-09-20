@@ -1,11 +1,11 @@
-package com.audigo.audigo_back.service.implement;
+package com.edid.edid_back.service.implement;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.audigo.audigo_back.dto.test.JoinDTO;
-import com.audigo.audigo_back.entity.UsertestEntity;
-import com.audigo.audigo_back.repository.UsertestRepository;
+import com.edid.edid_back.dto.test.JoinDTO;
+import com.edid.edid_back.entity.UsertestEntity;
+import com.edid.edid_back.repository.UsertestRepository;
 
 @Service
 public class JoinService {

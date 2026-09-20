@@ -1,13 +1,13 @@
-package com.audigo.audigo_back.service.advertisement;
+package com.edid.edid_back.service.advertisement;
 
-import com.audigo.audigo_back.dto.response.advertisement.AdsAudioResponse;
-import com.audigo.audigo_back.dto.response.advertisement.AdsResponseResult;
-import com.audigo.audigo_back.entity.advertisement.*;
-import com.audigo.audigo_back.entity.reward.RewardBalanceEntity;
-import com.audigo.audigo_back.entity.reward.RewardExchangeEntity;
-import com.audigo.audigo_back.repository.advertisement.*;
-import com.audigo.audigo_back.repository.reward.RewardBalanceRepository;
-import com.audigo.audigo_back.repository.reward.RewardExchangeRepository;
+import com.edid.edid_back.dto.response.advertisement.AdsAudioResponse;
+import com.edid.edid_back.dto.response.advertisement.AdsResponseResult;
+import com.edid.edid_back.entity.advertisement.*;
+import com.edid.edid_back.entity.reward.RewardBalanceEntity;
+import com.edid.edid_back.entity.reward.RewardExchangeEntity;
+import com.edid.edid_back.repository.advertisement.*;
+import com.edid.edid_back.repository.reward.RewardBalanceRepository;
+import com.edid.edid_back.repository.reward.RewardExchangeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

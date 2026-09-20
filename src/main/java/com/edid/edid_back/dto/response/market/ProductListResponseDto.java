@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.response.market;
+package com.edid.edid_back.dto.response.market;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

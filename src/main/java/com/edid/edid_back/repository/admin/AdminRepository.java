@@ -1,11 +1,11 @@
-package com.audigo.audigo_back.repository.admin;
+package com.edid.edid_back.repository.admin;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.audigo.audigo_back.entity.AdminEntity;
+import com.edid.edid_back.entity.AdminEntity;
 
 @Repository
 public interface AdminRepository extends JpaRepository<AdminEntity, Integer> {

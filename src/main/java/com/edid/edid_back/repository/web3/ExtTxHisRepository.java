@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.web3;
+package com.edid.edid_back.repository.web3;
 
-import com.audigo.audigo_back.entity.web3.ExtTxHisEntity;
+import com.edid.edid_back.entity.web3.ExtTxHisEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

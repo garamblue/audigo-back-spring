@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.entity.gamification;
+package com.edid.edid_back.entity.gamification;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

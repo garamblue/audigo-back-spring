@@ -1,9 +1,9 @@
-package com.audigo.audigo_back.controller.app;
+package com.edid.edid_back.controller.app;
 
-import com.audigo.audigo_back.dto.response.web3.TokenBalanceResponse;
-import com.audigo.audigo_back.dto.response.web3.TransactionResponse;
-import com.audigo.audigo_back.dto.response.web3.WalletResponse;
-import com.audigo.audigo_back.service.web3.Web3Service;
+import com.edid.edid_back.dto.response.web3.TokenBalanceResponse;
+import com.edid.edid_back.dto.response.web3.TransactionResponse;
+import com.edid.edid_back.dto.response.web3.WalletResponse;
+import com.edid.edid_back.service.web3.Web3Service;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

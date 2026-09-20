@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.util;
+package com.edid.edid_back.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

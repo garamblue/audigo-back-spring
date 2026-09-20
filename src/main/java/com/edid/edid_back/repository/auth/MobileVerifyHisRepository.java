@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.auth;
+package com.edid.edid_back.repository.auth;
 
-import com.audigo.audigo_back.entity.auth.MobileVerifyHisEntity;
+import com.edid.edid_back.entity.auth.MobileVerifyHisEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

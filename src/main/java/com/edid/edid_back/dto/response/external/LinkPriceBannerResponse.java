@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.response.external;
+package com.edid.edid_back.dto.response.external;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.common;
+package com.edid.edid_back.common;
 
 public interface ResponseCode {
     // http status code

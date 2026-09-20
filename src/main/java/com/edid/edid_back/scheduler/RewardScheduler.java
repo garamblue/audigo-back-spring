@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.scheduler;
+package com.edid.edid_back.scheduler;
 
-import com.audigo.audigo_back.service.reward.RewardService;
+import com.edid.edid_back.service.reward.RewardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

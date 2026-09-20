@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.entity;
+package com.edid.edid_back.entity;
 
-import com.audigo.audigo_back.dto.request.app.auth.SignUpRequestDto;
+import com.edid.edid_back.dto.request.app.auth.SignUpRequestDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

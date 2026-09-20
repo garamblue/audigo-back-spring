@@ -1,15 +1,15 @@
-package com.audigo.audigo_back.dto.response.admin.board;
+package com.edid.edid_back.dto.response.admin.board;
 
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.audigo.audigo_back.common.ResponseCode;
-import com.audigo.audigo_back.common.ResponseMessage;
-import com.audigo.audigo_back.dto.object.BoardListItem;
-import com.audigo.audigo_back.dto.response.ResponseDto;
-import com.audigo.audigo_back.entity.BoardListViewEntity;
+import com.edid.edid_back.common.ResponseCode;
+import com.edid.edid_back.common.ResponseMessage;
+import com.edid.edid_back.dto.object.BoardListItem;
+import com.edid.edid_back.dto.response.ResponseDto;
+import com.edid.edid_back.entity.BoardListViewEntity;
 
 import lombok.Getter;
 

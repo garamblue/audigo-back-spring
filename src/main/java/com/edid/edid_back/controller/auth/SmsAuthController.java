@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.controller.auth;
+package com.edid.edid_back.controller.auth;
 
-import com.audigo.audigo_back.service.auth.SmsAuthService;
+import com.edid.edid_back.service.auth.SmsAuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

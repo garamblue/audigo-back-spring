@@ -1,7 +1,7 @@
-package com.audigo.audigo_back.service.advertisement;
+package com.edid.edid_back.service.advertisement;
 
-import com.audigo.audigo_back.dto.response.advertisement.AdsAudioResponse;
-import com.audigo.audigo_back.dto.response.advertisement.AdsResponseResult;
+import com.edid.edid_back.dto.response.advertisement.AdsAudioResponse;
+import com.edid.edid_back.dto.response.advertisement.AdsResponseResult;
 
 import java.math.BigInteger;
 import java.util.List;

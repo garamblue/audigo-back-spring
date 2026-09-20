@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.request.market;
+package com.edid.edid_back.dto.request.market;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

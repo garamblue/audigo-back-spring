@@ -1,7 +1,7 @@
-package com.audigo.audigo_back.service.external;
+package com.edid.edid_back.service.external;
 
-import com.audigo.audigo_back.dto.request.external.PincruxRewardRequest;
-import com.audigo.audigo_back.dto.response.external.LinkPriceBannerResponse;
+import com.edid.edid_back.dto.request.external.PincruxRewardRequest;
+import com.edid.edid_back.dto.response.external.LinkPriceBannerResponse;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

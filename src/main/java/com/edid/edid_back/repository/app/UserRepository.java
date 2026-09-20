@@ -1,9 +1,9 @@
-package com.audigo.audigo_back.repository.app;
+package com.edid.edid_back.repository.app;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.audigo.audigo_back.entity.UserEntity;
+import com.edid.edid_back.entity.UserEntity;
 
 //PK type is String
 @Repository

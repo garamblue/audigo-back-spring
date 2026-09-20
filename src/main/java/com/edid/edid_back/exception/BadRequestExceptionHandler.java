@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.exception;
+package com.edid.edid_back.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.audigo.audigo_back.dto.response.ResponseDto;
+import com.edid.edid_back.dto.response.ResponseDto;
 
 import lombok.extern.slf4j.Slf4j;
 

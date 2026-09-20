@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.entity.advertisement;
+package com.edid.edid_back.entity.advertisement;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

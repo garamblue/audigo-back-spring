@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.advertisement;
+package com.edid.edid_back.repository.advertisement;
 
-import com.audigo.audigo_back.entity.advertisement.AdsAudioEntity;
+import com.edid.edid_back.entity.advertisement.AdsAudioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

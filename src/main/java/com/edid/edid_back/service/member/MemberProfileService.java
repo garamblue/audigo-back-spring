@@ -1,7 +1,7 @@
-package com.audigo.audigo_back.service.member;
+package com.edid.edid_back.service.member;
 
-import com.audigo.audigo_back.entity.member.MembersEntity;
-import com.audigo.audigo_back.repository.member.MembersRepository;
+import com.edid.edid_back.entity.member.MembersEntity;
+import com.edid.edid_back.repository.member.MembersRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

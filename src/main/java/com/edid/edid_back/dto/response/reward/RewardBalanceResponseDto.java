@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.response.reward;
+package com.edid.edid_back.dto.response.reward;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

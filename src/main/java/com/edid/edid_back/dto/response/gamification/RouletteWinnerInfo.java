@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.response.gamification;
+package com.edid.edid_back.dto.response.gamification;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

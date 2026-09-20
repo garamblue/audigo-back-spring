@@ -1,8 +1,8 @@
-package com.audigo.audigo_back.controller.app;
+package com.edid.edid_back.controller.app;
 
-import com.audigo.audigo_back.dto.response.advertisement.AdsAudioResponse;
-import com.audigo.audigo_back.dto.response.advertisement.AdsResponseResult;
-import com.audigo.audigo_back.service.advertisement.AdvertisementService;
+import com.edid.edid_back.dto.response.advertisement.AdsAudioResponse;
+import com.edid.edid_back.dto.response.advertisement.AdsResponseResult;
+import com.edid.edid_back.service.advertisement.AdvertisementService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

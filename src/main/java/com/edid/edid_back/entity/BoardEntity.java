@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.entity;
+package com.edid.edid_back.entity;
 
 import java.math.BigInteger;
 import java.sql.Timestamp;
@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
-import com.audigo.audigo_back.dto.request.admin.board.PostBoardRequestDto;
+import com.edid.edid_back.dto.request.admin.board.PostBoardRequestDto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

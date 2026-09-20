@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.util;
+package com.edid.edid_back.util;
 
 import org.web3j.abi.FunctionEncoder;
 import org.web3j.abi.FunctionReturnDecoder;

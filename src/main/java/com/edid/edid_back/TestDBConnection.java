@@ -1,4 +1,4 @@
-package com.audigo.audigo_back;
+package com.edid.edid_back;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

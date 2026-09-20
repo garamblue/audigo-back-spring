@@ -1,21 +1,21 @@
-package com.audigo.audigo_back.controller.admin;
+package com.edid.edid_back.controller.admin;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.audigo.audigo_back.dto.request.admin.board.PostBoardRequestDto;
-import com.audigo.audigo_back.dto.request.admin.board.PostCommentRequestDto;
-import com.audigo.audigo_back.dto.response.CommonResponseDto;
-import com.audigo.audigo_back.dto.response.admin.board.GetBoardResponseDto;
-import com.audigo.audigo_back.dto.response.admin.board.GetLatestBoardListResponseDto;
-import com.audigo.audigo_back.dto.response.admin.board.GetPaginationResponseDto;
-import com.audigo.audigo_back.dto.response.admin.board.GetCommentListResponseDto;
-import com.audigo.audigo_back.dto.response.admin.board.GetFavoriteListResponseDto;
-import com.audigo.audigo_back.dto.response.admin.board.PostBoardResponseDto;
-import com.audigo.audigo_back.dto.response.admin.board.PostCommentResponseDto;
-import com.audigo.audigo_back.dto.response.admin.board.PutFavoriteResponseDto;
-import com.audigo.audigo_back.service.admin.BoardService;
+import com.edid.edid_back.dto.request.admin.board.PostBoardRequestDto;
+import com.edid.edid_back.dto.request.admin.board.PostCommentRequestDto;
+import com.edid.edid_back.dto.response.CommonResponseDto;
+import com.edid.edid_back.dto.response.admin.board.GetBoardResponseDto;
+import com.edid.edid_back.dto.response.admin.board.GetLatestBoardListResponseDto;
+import com.edid.edid_back.dto.response.admin.board.GetPaginationResponseDto;
+import com.edid.edid_back.dto.response.admin.board.GetCommentListResponseDto;
+import com.edid.edid_back.dto.response.admin.board.GetFavoriteListResponseDto;
+import com.edid.edid_back.dto.response.admin.board.PostBoardResponseDto;
+import com.edid.edid_back.dto.response.admin.board.PostCommentResponseDto;
+import com.edid.edid_back.dto.response.admin.board.PutFavoriteResponseDto;
+import com.edid.edid_back.service.admin.BoardService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

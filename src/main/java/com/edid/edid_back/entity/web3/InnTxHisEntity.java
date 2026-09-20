@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.entity.web3;
+package com.edid.edid_back.entity.web3;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

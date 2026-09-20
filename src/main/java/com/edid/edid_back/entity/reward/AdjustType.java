@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.entity.reward;
+package com.edid.edid_back.entity.reward;
 
 import lombok.Getter;
 

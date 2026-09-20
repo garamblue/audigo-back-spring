@@ -1,7 +1,7 @@
-package com.audigo.audigo_back.service.admin;
+package com.edid.edid_back.service.admin;
 
-import com.audigo.audigo_back.entity.admin.AdminsDetectedDeviceEntity;
-import com.audigo.audigo_back.repository.admin.AdminsDetectedDeviceRepository;
+import com.edid.edid_back.entity.admin.AdminsDetectedDeviceEntity;
+import com.edid.edid_back.repository.admin.AdminsDetectedDeviceRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

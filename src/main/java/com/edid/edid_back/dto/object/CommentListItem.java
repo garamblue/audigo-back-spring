@@ -1,9 +1,9 @@
-package com.audigo.audigo_back.dto.object;
+package com.edid.edid_back.dto.object;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.audigo.audigo_back.repository.resultSet.GetCommentListResultSet;
+import com.edid.edid_back.repository.resultSet.GetCommentListResultSet;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

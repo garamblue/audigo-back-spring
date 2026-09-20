@@ -1,8 +1,8 @@
-package com.audigo.audigo_back.controller.member;
+package com.edid.edid_back.controller.member;
 
-import com.audigo.audigo_back.service.auth.MemberAuthService;
-import com.audigo.audigo_back.service.member.MemberProfileService;
-import com.audigo.audigo_back.util.AesUtil;
+import com.edid.edid_back.service.auth.MemberAuthService;
+import com.edid.edid_back.service.member.MemberProfileService;
+import com.edid.edid_back.util.AesUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

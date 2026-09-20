@@ -1,10 +1,10 @@
-package com.audigo.audigo_back.dto.response;
+package com.edid.edid_back.dto.response;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.audigo.audigo_back.common.ResponseCode;
-import com.audigo.audigo_back.common.ResponseMessage;
+import com.edid.edid_back.common.ResponseCode;
+import com.edid.edid_back.common.ResponseMessage;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

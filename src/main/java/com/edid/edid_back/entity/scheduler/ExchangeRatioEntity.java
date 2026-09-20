@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.entity.scheduler;
+package com.edid.edid_back.entity.scheduler;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

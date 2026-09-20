@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.mapper.mysql;
+package com.edid.edid_back.mapper.mysql;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.audigo.audigo_back.entity.BoardEntity;
+import com.edid.edid_back.entity.BoardEntity;
 
 @Mapper
 public interface MyBoardMapper {

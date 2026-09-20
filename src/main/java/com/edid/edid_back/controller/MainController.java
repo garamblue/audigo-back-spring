@@ -1,12 +1,12 @@
-package com.audigo.audigo_back.controller;
+package com.edid.edid_back.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.audigo.audigo_back.dto.test.JoinDTO;
-import com.audigo.audigo_back.service.implement.JoinService;
+import com.edid.edid_back.dto.test.JoinDTO;
+import com.edid.edid_back.service.implement.JoinService;
 
 import lombok.extern.slf4j.Slf4j;
 

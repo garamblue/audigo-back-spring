@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.object;
+package com.edid.edid_back.dto.object;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

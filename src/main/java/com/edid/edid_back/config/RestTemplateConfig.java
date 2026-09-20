@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.config;
+package com.edid.edid_back.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

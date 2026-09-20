@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.config;
+package com.edid.edid_back.config;
 
 import java.io.InputStream;
 

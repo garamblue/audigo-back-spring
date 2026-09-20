@@ -1,8 +1,8 @@
-package com.audigo.audigo_back.entity;
+package com.edid.edid_back.entity;
 
 import java.sql.Timestamp;
 
-import com.audigo.audigo_back.dto.request.admin.auth.AdminSignUpRequestDto;
+import com.edid.edid_back.dto.request.admin.auth.AdminSignUpRequestDto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

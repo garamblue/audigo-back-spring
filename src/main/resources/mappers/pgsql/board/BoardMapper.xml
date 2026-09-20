@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.audigo.audigo_back.mapper.BoardMapper">
+<mapper namespace="com.edid.edid_back.mapper.BoardMapper">
 
     <select id="selectAllBoard" resultType="hashmap">
         SELECT * 
@@ -16,7 +16,7 @@
     </select>
 
     <!-- 게시판 등록 -->
-    <insert id="insertBoardAdmin" parameterType="com.audigo.audigo_back.entity.BoardEntity" useGeneratedKeys="true" keyProperty="bIdx">
+    <insert id="insertBoardAdmin" parameterType="com.edid.edid_back.entity.BoardEntity" useGeneratedKeys="true" keyProperty="bIdx">
         INSERT INTO board (
             a_idx,
             m_idx,

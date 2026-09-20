@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.market;
+package com.edid.edid_back.repository.market;
 
-import com.audigo.audigo_back.entity.market.GiftBalanceEntity;
+import com.edid.edid_back.entity.market.GiftBalanceEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

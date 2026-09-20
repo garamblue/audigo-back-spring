@@ -1,11 +1,11 @@
-package com.audigo.audigo_back.service.admin;
+package com.edid.edid_back.service.admin;
 
-import com.audigo.audigo_back.entity.admin.AdminsEntity;
-import com.audigo.audigo_back.entity.admin.AdminsRolesMenusCustomEntity;
-import com.audigo.audigo_back.entity.admin.AdminsRolesMenusEntity;
-import com.audigo.audigo_back.repository.admin.AdminsRepository;
-import com.audigo.audigo_back.repository.admin.AdminsRolesMenusCustomRepository;
-import com.audigo.audigo_back.repository.admin.AdminsRolesMenusRepository;
+import com.edid.edid_back.entity.admin.AdminsEntity;
+import com.edid.edid_back.entity.admin.AdminsRolesMenusCustomEntity;
+import com.edid.edid_back.entity.admin.AdminsRolesMenusEntity;
+import com.edid.edid_back.repository.admin.AdminsRepository;
+import com.edid.edid_back.repository.admin.AdminsRolesMenusCustomRepository;
+import com.edid.edid_back.repository.admin.AdminsRolesMenusRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

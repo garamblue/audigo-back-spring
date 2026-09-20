@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.entity;
+package com.edid.edid_back.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

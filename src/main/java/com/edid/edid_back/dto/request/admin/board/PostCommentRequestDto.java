@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.request.admin.board;
+package com.edid.edid_back.dto.request.admin.board;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

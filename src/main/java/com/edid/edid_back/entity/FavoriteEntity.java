@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.entity;
+package com.edid.edid_back.entity;
 
-import com.audigo.audigo_back.entity.pKey.FavoritePk;
+import com.edid.edid_back.entity.pKey.FavoritePk;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

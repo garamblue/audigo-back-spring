@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.jwt;
+package com.edid.edid_back.jwt;
 
 import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.controller.app;
+package com.edid.edid_back.controller.app;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.audigo.audigo_back.dto.request.app.auth.SignInRequestDto;
-import com.audigo.audigo_back.dto.request.app.auth.SignUpRequestDto;
-import com.audigo.audigo_back.dto.response.app.auth.SignInResponseDto;
-import com.audigo.audigo_back.dto.response.app.auth.SignUpResponseDto;
-import com.audigo.audigo_back.service.app.AuthService;
+import com.edid.edid_back.dto.request.app.auth.SignInRequestDto;
+import com.edid.edid_back.dto.request.app.auth.SignUpRequestDto;
+import com.edid.edid_back.dto.response.app.auth.SignInResponseDto;
+import com.edid.edid_back.dto.response.app.auth.SignUpResponseDto;
+import com.edid.edid_back.service.app.AuthService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

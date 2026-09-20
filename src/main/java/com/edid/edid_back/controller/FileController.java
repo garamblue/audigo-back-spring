@@ -1,11 +1,11 @@
-package com.audigo.audigo_back.controller;
+package com.edid.edid_back.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.audigo.audigo_back.service.FileService;
+import com.edid.edid_back.service.FileService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

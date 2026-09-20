@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.market;
+package com.edid.edid_back.repository.market;
 
-import com.audigo.audigo_back.entity.market.GiftProductEntity;
+import com.edid.edid_back.entity.market.GiftProductEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

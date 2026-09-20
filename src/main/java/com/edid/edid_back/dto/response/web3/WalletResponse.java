@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.response.web3;
+package com.edid.edid_back.dto.response.web3;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

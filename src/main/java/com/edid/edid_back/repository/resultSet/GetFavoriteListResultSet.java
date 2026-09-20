@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.repository.resultSet;
+package com.edid.edid_back.repository.resultSet;
 
 public interface GetFavoriteListResultSet {
     String getEmail();

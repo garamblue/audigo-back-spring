@@ -1,9 +1,9 @@
-package com.audigo.audigo_back.controller.app;
+package com.edid.edid_back.controller.app;
 
-import com.audigo.audigo_back.dto.response.reward.RewardBalanceResponseDto;
-import com.audigo.audigo_back.dto.response.reward.RewardExpirationResponseDto;
-import com.audigo.audigo_back.dto.response.reward.RewardHistoryResponseDto;
-import com.audigo.audigo_back.service.reward.RewardService;
+import com.edid.edid_back.dto.response.reward.RewardBalanceResponseDto;
+import com.edid.edid_back.dto.response.reward.RewardExpirationResponseDto;
+import com.edid.edid_back.dto.response.reward.RewardHistoryResponseDto;
+import com.edid.edid_back.service.reward.RewardService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

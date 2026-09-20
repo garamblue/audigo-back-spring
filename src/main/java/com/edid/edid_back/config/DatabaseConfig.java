@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.config;
+package com.edid.edid_back.config;
 
 import javax.sql.DataSource;
 
@@ -19,12 +19,12 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @EnableJpaRepositories(
-    basePackages = "com.audigo.audigo_back.repository",
+    basePackages = "com.edid.edid_back.repository",
     entityManagerFactoryRef = "postgresqlEntityManagerFactory",
     transactionManagerRef = "postgresqlTransactionManager"
 )
 @MapperScan(
-    basePackages = "com.audigo.audigo_back.mapper",
+    basePackages = "com.edid.edid_back.mapper",
     sqlSessionFactoryRef = "postgresqlSqlSessionFactory"
 )
 
@@ -48,7 +48,7 @@ public class DatabaseConfig {
     public LocalContainerEntityManagerFactoryBean postgresqlEntityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(postgresqlDataSource());
-        em.setPackagesToScan("com.audigo.audigo_back.entity");
+        em.setPackagesToScan("com.edid.edid_back.entity");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return em;
     }

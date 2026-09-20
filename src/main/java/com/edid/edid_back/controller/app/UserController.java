@@ -1,10 +1,10 @@
-package com.audigo.audigo_back.controller.app;
+package com.edid.edid_back.controller.app;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.audigo.audigo_back.dto.response.app.user.GetSignInUserResponseDto;
-import com.audigo.audigo_back.service.app.UserService;
+import com.edid.edid_back.dto.response.app.user.GetSignInUserResponseDto;
+import com.edid.edid_back.service.app.UserService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

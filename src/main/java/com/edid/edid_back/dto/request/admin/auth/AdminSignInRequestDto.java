@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.request.admin.auth;
+package com.edid.edid_back.dto.request.admin.auth;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

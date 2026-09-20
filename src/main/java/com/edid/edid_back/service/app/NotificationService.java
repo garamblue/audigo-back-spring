@@ -1,10 +1,10 @@
-package com.audigo.audigo_back.service.app;
+package com.edid.edid_back.service.app;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.audigo.audigo_back.dto.request.app.push.PushRequestDto;
-import com.audigo.audigo_back.dto.response.app.push.PushResponseDto;
+import com.edid.edid_back.dto.request.app.push.PushRequestDto;
+import com.edid.edid_back.dto.response.app.push.PushResponseDto;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;

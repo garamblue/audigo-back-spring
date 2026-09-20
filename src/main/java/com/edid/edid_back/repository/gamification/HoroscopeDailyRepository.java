@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.gamification;
+package com.edid.edid_back.repository.gamification;
 
-import com.audigo.audigo_back.entity.gamification.HoroscopeDailyEntity;
+import com.edid.edid_back.entity.gamification.HoroscopeDailyEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

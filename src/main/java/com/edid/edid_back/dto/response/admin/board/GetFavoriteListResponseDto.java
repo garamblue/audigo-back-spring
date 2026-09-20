@@ -1,15 +1,15 @@
-package com.audigo.audigo_back.dto.response.admin.board;
+package com.edid.edid_back.dto.response.admin.board;
 
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.audigo.audigo_back.common.ResponseCode;
-import com.audigo.audigo_back.common.ResponseMessage;
-import com.audigo.audigo_back.dto.object.FavoriteListItem;
-import com.audigo.audigo_back.dto.response.ResponseDto;
-import com.audigo.audigo_back.repository.resultSet.GetFavoriteListResultSet;
+import com.edid.edid_back.common.ResponseCode;
+import com.edid.edid_back.common.ResponseMessage;
+import com.edid.edid_back.dto.object.FavoriteListItem;
+import com.edid.edid_back.dto.response.ResponseDto;
+import com.edid.edid_back.repository.resultSet.GetFavoriteListResultSet;
 
 import lombok.Getter;
 

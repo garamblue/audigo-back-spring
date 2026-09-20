@@ -1,8 +1,8 @@
-package com.audigo.audigo_back.service.admin;
+package com.edid.edid_back.service.admin;
 
 import org.springframework.http.ResponseEntity;
 
-import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
+import com.edid.edid_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
 
 import java.util.Map;
 

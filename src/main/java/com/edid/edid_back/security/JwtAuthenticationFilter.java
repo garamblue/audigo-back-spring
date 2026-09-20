@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.security;
+package com.edid.edid_back.security;
 
-import com.audigo.audigo_back.util.JwtUtil;
+import com.edid.edid_back.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

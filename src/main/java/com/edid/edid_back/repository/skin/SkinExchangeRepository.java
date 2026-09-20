@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.skin;
+package com.edid.edid_back.repository.skin;
 
-import com.audigo.audigo_back.entity.skin.SkinExchangeEntity;
+import com.edid.edid_back.entity.skin.SkinExchangeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

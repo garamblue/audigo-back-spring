@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.repository;
+package com.edid.edid_back.repository;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.audigo.audigo_back.entity.FavoriteEntity;
-import com.audigo.audigo_back.entity.pKey.FavoritePk;
-import com.audigo.audigo_back.repository.resultSet.GetFavoriteListResultSet;
+import com.edid.edid_back.entity.FavoriteEntity;
+import com.edid.edid_back.entity.pKey.FavoritePk;
+import com.edid.edid_back.repository.resultSet.GetFavoriteListResultSet;
 
 @Repository
 public interface FavoriteRepository extends JpaRepository<FavoriteEntity, FavoritePk> {

@@ -1,7 +1,7 @@
-package com.audigo.audigo_back.service.admin;
+package com.edid.edid_back.service.admin;
 
-import com.audigo.audigo_back.entity.admin.AdminsMenusEntity;
-import com.audigo.audigo_back.repository.admin.AdminsMenusRepository;
+import com.edid.edid_back.entity.admin.AdminsMenusEntity;
+import com.edid.edid_back.repository.admin.AdminsMenusRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

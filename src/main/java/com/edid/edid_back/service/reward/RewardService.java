@@ -1,11 +1,11 @@
-package com.audigo.audigo_back.service.reward;
+package com.edid.edid_back.service.reward;
 
-import com.audigo.audigo_back.dto.request.reward.RewardAdjustRequestDto;
-import com.audigo.audigo_back.dto.request.reward.RewardExchangeRequestDto;
-import com.audigo.audigo_back.dto.request.reward.RewardTopupRequestDto;
-import com.audigo.audigo_back.dto.response.reward.RewardBalanceResponseDto;
-import com.audigo.audigo_back.dto.response.reward.RewardExpirationResponseDto;
-import com.audigo.audigo_back.dto.response.reward.RewardHistoryResponseDto;
+import com.edid.edid_back.dto.request.reward.RewardAdjustRequestDto;
+import com.edid.edid_back.dto.request.reward.RewardExchangeRequestDto;
+import com.edid.edid_back.dto.request.reward.RewardTopupRequestDto;
+import com.edid.edid_back.dto.response.reward.RewardBalanceResponseDto;
+import com.edid.edid_back.dto.response.reward.RewardExpirationResponseDto;
+import com.edid.edid_back.dto.response.reward.RewardHistoryResponseDto;
 import org.springframework.data.domain.Pageable;
 
 import java.math.BigDecimal;

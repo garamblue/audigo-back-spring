@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.util;
+package com.edid.edid_back.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

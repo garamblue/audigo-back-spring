@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.member;
+package com.edid.edid_back.repository.member;
 
-import com.audigo.audigo_back.entity.member.MembersSessionEntity;
+import com.edid.edid_back.entity.member.MembersSessionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

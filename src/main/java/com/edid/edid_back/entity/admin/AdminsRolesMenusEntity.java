@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.entity.admin;
+package com.edid.edid_back.entity.admin;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.reward;
+package com.edid.edid_back.repository.reward;
 
-import com.audigo.audigo_back.entity.reward.RewardExchangeEntity;
+import com.edid.edid_back.entity.reward.RewardExchangeEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

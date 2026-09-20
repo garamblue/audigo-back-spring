@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.response.admin.board;
+package com.edid.edid_back.dto.response.admin.board;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -7,11 +7,11 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.audigo.audigo_back.common.ResponseCode;
-import com.audigo.audigo_back.common.ResponseMessage;
-import com.audigo.audigo_back.dto.response.ResponseDto;
-import com.audigo.audigo_back.entity.ImageEntity;
-import com.audigo.audigo_back.repository.resultSet.GetBoardResultSet;
+import com.edid.edid_back.common.ResponseCode;
+import com.edid.edid_back.common.ResponseMessage;
+import com.edid.edid_back.dto.response.ResponseDto;
+import com.edid.edid_back.entity.ImageEntity;
+import com.edid.edid_back.repository.resultSet.GetBoardResultSet;
 
 import lombok.Getter;
 

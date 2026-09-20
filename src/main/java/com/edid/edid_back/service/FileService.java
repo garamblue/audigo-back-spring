@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.service;
+package com.edid.edid_back.service;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.handler;
+package com.edid.edid_back.handler;
 
 import java.io.IOException;
 
@@ -6,8 +6,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import com.audigo.audigo_back.entity.CustomOAuth2Member;
-import com.audigo.audigo_back.jwt.JWTUtil;
+import com.edid.edid_back.entity.CustomOAuth2Member;
+import com.edid.edid_back.jwt.JWTUtil;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.entity.pKey;
+package com.edid.edid_back.entity.pKey;
 
 import java.io.Serializable;
 

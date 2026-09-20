@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.reward;
+package com.edid.edid_back.repository.reward;
 
-import com.audigo.audigo_back.entity.reward.RewardHistoryEntity;
+import com.edid.edid_back.entity.reward.RewardHistoryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

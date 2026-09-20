@@ -1,19 +1,19 @@
-package com.audigo.audigo_back.service.implement.app;
+package com.edid.edid_back.service.implement.app;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-import com.audigo.audigo_back.dto.request.app.auth.SignInRequestDto;
-import com.audigo.audigo_back.dto.request.app.auth.SignUpRequestDto;
-import com.audigo.audigo_back.dto.response.ResponseDto;
-import com.audigo.audigo_back.dto.response.app.auth.SignInResponseDto;
-import com.audigo.audigo_back.dto.response.app.auth.SignUpResponseDto;
-import com.audigo.audigo_back.entity.MemberEntity;
-import com.audigo.audigo_back.jwt.JWTUtil;
-import com.audigo.audigo_back.repository.app.MemberRepository;
-import com.audigo.audigo_back.service.app.AuthService;
+import com.edid.edid_back.dto.request.app.auth.SignInRequestDto;
+import com.edid.edid_back.dto.request.app.auth.SignUpRequestDto;
+import com.edid.edid_back.dto.response.ResponseDto;
+import com.edid.edid_back.dto.response.app.auth.SignInResponseDto;
+import com.edid.edid_back.dto.response.app.auth.SignUpResponseDto;
+import com.edid.edid_back.entity.MemberEntity;
+import com.edid.edid_back.jwt.JWTUtil;
+import com.edid.edid_back.repository.app.MemberRepository;
+import com.edid.edid_back.service.app.AuthService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

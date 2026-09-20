@@ -1,9 +1,9 @@
-package com.audigo.audigo_back.service.auth;
+package com.edid.edid_back.service.auth;
 
-import com.audigo.audigo_back.entity.auth.MobileVerifyHisEntity;
-import com.audigo.audigo_back.repository.auth.MobileVerifyHisRepository;
-import com.audigo.audigo_back.util.AesUtil;
-import com.audigo.audigo_back.util.CodeUtil;
+import com.edid.edid_back.entity.auth.MobileVerifyHisEntity;
+import com.edid.edid_back.repository.auth.MobileVerifyHisRepository;
+import com.edid.edid_back.util.AesUtil;
+import com.edid.edid_back.util.CodeUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -132,7 +132,7 @@ public class SmsAuthService {
             String internationalRecipientNo = recipientNo.startsWith("+") ? recipientNo : "+" + recipientNo;
 
             // 2. SMS 본문 생성
-            String body = String.format("[Audigo] 인증번호 [%s]", authCode);
+            String body = String.format("[Edid] 인증번호 [%s]", authCode);
 
             // 3. 인증 키워드 확인
             String[] authKeywords = {"auth", "password", "verify", "인증", "비밀번호", "認証", "にんしょう"};

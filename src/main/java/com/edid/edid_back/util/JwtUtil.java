@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.util;
+package com.edid.edid_back.util;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;

@@ -1,8 +1,8 @@
-package com.audigo.audigo_back.service.web3;
+package com.edid.edid_back.service.web3;
 
-import com.audigo.audigo_back.dto.response.web3.TokenBalanceResponse;
-import com.audigo.audigo_back.dto.response.web3.TransactionResponse;
-import com.audigo.audigo_back.dto.response.web3.WalletResponse;
+import com.edid.edid_back.dto.response.web3.TokenBalanceResponse;
+import com.edid.edid_back.dto.response.web3.TransactionResponse;
+import com.edid.edid_back.dto.response.web3.WalletResponse;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

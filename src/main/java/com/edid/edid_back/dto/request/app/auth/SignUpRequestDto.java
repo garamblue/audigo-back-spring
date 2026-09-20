@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.request.app.auth;
+package com.edid.edid_back.dto.request.app.auth;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.dto.request.reward;
+package com.edid.edid_back.dto.request.reward;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

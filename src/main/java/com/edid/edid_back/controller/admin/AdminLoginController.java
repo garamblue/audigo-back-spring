@@ -1,7 +1,7 @@
-package com.audigo.audigo_back.controller.admin;
+package com.edid.edid_back.controller.admin;
 
-import com.audigo.audigo_back.service.admin.AdminLoginService;
-import com.audigo.audigo_back.util.AesUtil;
+import com.edid.edid_back.service.admin.AdminLoginService;
+import com.edid.edid_back.util.AesUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

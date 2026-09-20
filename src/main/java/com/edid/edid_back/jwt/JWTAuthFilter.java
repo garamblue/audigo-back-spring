@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.jwt;
+package com.edid.edid_back.jwt;
 
 import java.io.IOException;
 

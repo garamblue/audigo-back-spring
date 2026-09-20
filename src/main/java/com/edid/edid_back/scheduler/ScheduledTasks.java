@@ -1,9 +1,9 @@
-package com.audigo.audigo_back.scheduler;
+package com.edid.edid_back.scheduler;
 
-import com.audigo.audigo_back.entity.gamification.HoroscopeDailyEntity;
-import com.audigo.audigo_back.entity.scheduler.ExchangeRatioEntity;
-import com.audigo.audigo_back.repository.gamification.HoroscopeDailyRepository;
-import com.audigo.audigo_back.repository.scheduler.ExchangeRatioRepository;
+import com.edid.edid_back.entity.gamification.HoroscopeDailyEntity;
+import com.edid.edid_back.entity.scheduler.ExchangeRatioEntity;
+import com.edid.edid_back.repository.gamification.HoroscopeDailyRepository;
+import com.edid.edid_back.repository.scheduler.ExchangeRatioRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

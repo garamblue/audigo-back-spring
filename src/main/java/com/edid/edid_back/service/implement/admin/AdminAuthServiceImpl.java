@@ -1,19 +1,19 @@
-package com.audigo.audigo_back.service.implement.admin;
+package com.edid.edid_back.service.implement.admin;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.audigo.audigo_back.dto.request.admin.auth.AdminSignInRequestDto;
-import com.audigo.audigo_back.dto.request.admin.auth.AdminSignUpRequestDto;
-import com.audigo.audigo_back.dto.response.ResponseDto;
-import com.audigo.audigo_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
-import com.audigo.audigo_back.entity.AdminEntity;
-import com.audigo.audigo_back.jwt.JWTUtil;
-import com.audigo.audigo_back.repository.admin.AdminRepository;
-import com.audigo.audigo_back.service.admin.AdminAuthService;
-import com.audigo.audigo_back.util.AesUtil;
+import com.edid.edid_back.dto.request.admin.auth.AdminSignInRequestDto;
+import com.edid.edid_back.dto.request.admin.auth.AdminSignUpRequestDto;
+import com.edid.edid_back.dto.response.ResponseDto;
+import com.edid.edid_back.dto.response.admin.auth.AdminSignInInfoResponseDto;
+import com.edid.edid_back.entity.AdminEntity;
+import com.edid.edid_back.jwt.JWTUtil;
+import com.edid.edid_back.repository.admin.AdminRepository;
+import com.edid.edid_back.service.admin.AdminAuthService;
+import com.edid.edid_back.util.AesUtil;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

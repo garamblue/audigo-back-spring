@@ -1,13 +1,13 @@
-package com.audigo.audigo_back.service.implement.app;
+package com.edid.edid_back.service.implement.app;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.audigo.audigo_back.dto.response.ResponseDto;
-import com.audigo.audigo_back.dto.response.app.user.GetSignInUserResponseDto;
-import com.audigo.audigo_back.entity.UserEntity;
-import com.audigo.audigo_back.repository.app.UserRepository;
-import com.audigo.audigo_back.service.app.UserService;
+import com.edid.edid_back.dto.response.ResponseDto;
+import com.edid.edid_back.dto.response.app.user.GetSignInUserResponseDto;
+import com.edid.edid_back.entity.UserEntity;
+import com.edid.edid_back.repository.app.UserRepository;
+import com.edid.edid_back.service.app.UserService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

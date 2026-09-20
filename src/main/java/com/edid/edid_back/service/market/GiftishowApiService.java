@@ -1,4 +1,4 @@
-package com.audigo.audigo_back.service.market;
+package com.edid.edid_back.service.market;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

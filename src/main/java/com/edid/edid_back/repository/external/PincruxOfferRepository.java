@@ -1,6 +1,6 @@
-package com.audigo.audigo_back.repository.external;
+package com.edid.edid_back.repository.external;
 
-import com.audigo.audigo_back.entity.external.PincruxOfferEntity;
+import com.edid.edid_back.entity.external.PincruxOfferEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
