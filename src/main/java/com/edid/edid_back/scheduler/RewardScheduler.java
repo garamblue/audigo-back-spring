@@ -18,7 +18,7 @@ public class RewardScheduler {
      * Runs every hour at minute 0
      * Corresponds to Node.js: rewardAdjust() scheduler
      */
-    @Scheduled(cron = "0 0 * * * *")
+    @Scheduled(cron = "${scheduler.reward.adjustments.cron:0 0 * * * *}")
     public void processScheduledAdjustments() {
         log.info("Starting scheduled reward adjustments processing");
         try {
@@ -34,7 +34,7 @@ public class RewardScheduler {
      * Runs on the 1st day of every month at 2:00 AM
      * Corresponds to Node.js: rewardExpireScheduler()
      */
-    @Scheduled(cron = "0 2 1 * * *")
+    @Scheduled(cron = "${scheduler.reward.expiration.cron:0 2 1 * * *}")
     public void processRewardExpiration() {
         log.info("Starting reward expiration processing");
         try {

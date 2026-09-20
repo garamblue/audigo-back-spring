@@ -42,7 +42,7 @@ public class ScheduledTasks {
      * USD -> KRW 환율 업데이트
      * 매 8시간마다 실행 (0시, 8시, 16시)
      */
-    @Scheduled(cron = "0 0 */8 * * *")
+    @Scheduled(cron = "${scheduler.usd.exchange.cron:0 0 */8 * * *}")
     public void updateUsdExchangeRate() {
         log.info("Starting USD exchange rate update");
 
@@ -83,7 +83,7 @@ public class ScheduledTasks {
      * 매 5분마다 실행
      * TODO: 실제 토큰 가격 API 연동 필요
      */
-    @Scheduled(cron = "0 */5 * * * *")
+    @Scheduled(cron = "${scheduler.token.price.cron:0 */5 * * * *}")
     public void updateTokenPrice() {
         log.info("Token price update (placeholder)");
         // TODO: 토큰 가격 업데이트 로직 구현
@@ -93,7 +93,7 @@ public class ScheduledTasks {
      * 일일 운세 생성
      * 매일 12시 1분에 실행
      */
-    @Scheduled(cron = "0 1 12 * * *")
+    @Scheduled(cron = "${scheduler.horoscope.daily.cron:0 1 12 * * *}")
     public void generateDailyHoroscope() {
         log.info("Starting daily horoscope generation");
 
@@ -193,7 +193,7 @@ public class ScheduledTasks {
      * 기프티쇼 데이터 업데이트
      * 매일 15시 5분에 실행
      */
-    @Scheduled(cron = "0 5 15 * * *")
+    @Scheduled(cron = "${scheduler.giftishow.cron:0 5 15 * * *}")
     public void updateGiftishow() {
         log.info("Giftishow update (placeholder)");
         // TODO: 기프티쇼 API 연동 구현
@@ -203,7 +203,7 @@ public class ScheduledTasks {
      * FCM 푸시 알림
      * 매일 자정에 실행
      */
-    @Scheduled(cron = "0 0 0 * * *")
+    @Scheduled(cron = "${scheduler.fcm.notifications.cron:0 0 0 * * *}")
     public void sendFcmNotifications() {
         log.info("FCM push notifications (placeholder)");
         // TODO: FCM 푸시 알림 로직 구현
@@ -213,7 +213,7 @@ public class ScheduledTasks {
      * 보상 만료 처리
      * 매월 1일 15시 2분에 실행
      */
-    @Scheduled(cron = "0 2 15 1 * *")
+    @Scheduled(cron = "${scheduler.reward.expire.cron:0 2 15 1 * *}")
     public void expireRewards() {
         log.info("Reward expiration (placeholder)");
         // TODO: 보상 만료 처리 로직 구현
@@ -223,7 +223,7 @@ public class ScheduledTasks {
      * 랭킹 집계
      * 매월 1일 15시 8분에 실행
      */
-    @Scheduled(cron = "0 8 15 1 * *")
+    @Scheduled(cron = "${scheduler.ranking.cron:0 8 15 1 * *}")
     public void calculateRanking() {
         log.info("Ranking calculation (placeholder)");
         // TODO: 랭킹 집계 로직 구현

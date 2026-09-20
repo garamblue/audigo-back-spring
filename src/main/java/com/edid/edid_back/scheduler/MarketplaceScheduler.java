@@ -18,7 +18,7 @@ public class MarketplaceScheduler {
      * Runs daily at 15:05 (3:05 PM)
      * Corresponds to Node.js: get_giftishow() scheduler
      */
-    @Scheduled(cron = "0 5 15 * * *")
+    @Scheduled(cron = "${scheduler.marketplace.giftishow.cron:0 5 15 * * *}")
     public void syncGiftishow() {
         log.info("Starting GiftiShow synchronization scheduler");
         try {

@@ -46,12 +46,6 @@ public class RewardAdjustHistoryEntity {
     @Column(name = "udt")
     private LocalDateTime udt;
 
-    @Column(name = "c_aidx")
-    private BigInteger cAidx;  // Created by admin ID
-
-    @Column(name = "u_aidx")
-    private BigInteger uAidx;  // Updated by admin ID
-
     @PrePersist
     protected void onCreate() {
         if (cdt == null) {

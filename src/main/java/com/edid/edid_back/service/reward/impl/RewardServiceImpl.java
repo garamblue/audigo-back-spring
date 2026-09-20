@@ -193,7 +193,7 @@ public class RewardServiceImpl implements RewardService {
         adjustment.setType(request.getType());
         adjustment.setRAmt(request.getAmount());
         adjustment.setTranDt(request.getScheduledDate());
-        adjustment.setCAidx(adminIdx);
+        //adjustment.setCAidx(adminIdx);
         RewardAdjustHistoryEntity savedAdjustment = adjustHistoryRepository.save(adjustment);
 
         // 2. If not scheduled (immediate processing)
